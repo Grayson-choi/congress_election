@@ -36,16 +36,29 @@ time.sleep(1)
 select_sgg = Select(browser.find_element_by_id("sggCityCode"))
 sgg_list = browser.find_elements_by_css_selector("select#sggCityCode > option")
 sgg_list = list(map(lambda x: x.text, sgg_list))
-
 time.sleep(1)
-
+# 선거구 종로구 선g
 select_sgg.select_by_visible_text("종로구")
 time.sleep(1)
 
 
 # 조회 버튼 선택 (홈페이지에서 img 타입의 버튼이 하나라서 이렇게 씀)
 browser.find_element_by_css_selector("#spanSubmit").click()
-#
+
+# 국회의원 정보 크롤
+candidate_list = browser.find_elements_by_css_selector("table#table01 td")
+candidate_list = list(map(lambda x: x.text, candidate_list))
+print(candidate_list)
+
+# 국회의원 얼굴 이미지 URL 크롤링
+candidate_image_list = browser.find_elements_by_css_selector("table#table01 tr input[type=image]")
+candidate_image_list = list(map(lambda  x: x.get_attribute('src'), candidate_image_list))
+print(candidate_image_list)
+
+# 이미지 저장
+for index, value in enumerate(candidate_image_list):
+    req.urlretrieve(value, f"./image/{index}.png")
+
 # time.sleep(5)
 # browser.quit()
 
