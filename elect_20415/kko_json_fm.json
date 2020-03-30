@@ -1,0 +1,89 @@
+// Simple Text
+// field  / type  / require / limit / desc
+// ---------------------------------------
+// text  / string / O /  < 1000 / Normal Type Text
+{
+  "version": "2.0",
+  "template": {
+      "outputs": [
+          {
+              "simpleText": {
+                  "text": "간단한 텍스트 요소입니다."
+              }
+          }
+      ]
+  }
+}
+
+// Simple Image
+// field  / type  / require / limit / desc
+// ---------------------------------------
+// imageUrl / string / O / URL type / Image Url 
+// altText / string / O / < 1000 / 유효하지 않는 IMG URL 인 경우 나타나는 텍스트
+
+{
+  "version": "2.0",
+  "template": {
+      "outputs": [
+          {
+              "simpleImage": {
+                  "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg",
+                  "altText": "보물상자입니다"
+              }
+          }
+      ]
+  }
+}
+
+// Basic Card
+// field  / type  / require / limit / desc
+// ---------------------------------------
+// decription 필드는 케로셀 타입에서 최대 76자
+// 케로셀의 경우 2줄, 일반카드의 경우 4줄까지 노출
+// 클라이언트에 따라 230자, 76자 보다 적게 노출될 수 있음.
+// ---------------------------------------
+// title / string / X / max 2 line / Card Title
+//  description / string / X / < 230 / Card Detail description
+// thumbnail / Thumbnail / X / - / Card upper Image
+// buttons / Array / X / max 3 buttons / Card Button 
+// ----- Not support yet
+// profile / Profile / X / - / Card profile information
+// social / Social / X / - / Card Social information
+
+{
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "basicCard": {
+          "title": "보물상자",
+          "description": "보물상자 안에는 뭐가 있을까",
+          "thumbnail": {
+            "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+          },
+          "buttons": [
+            {
+              "action": "message",
+              "label": "열어보기",
+              "messageText": "짜잔! 우리가 찾던 보물입니다"
+            },
+            {
+              "action":  "webLink",
+              "label": "구경하기",
+              "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
+            }
+          ],
+          "profile": {
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4BJ9LU4Ikr_EvZLmijfcjzQKMRCJ2bO3A8SVKNuQ78zu2KOqM",
+            "nickname": "보물상자"
+          },
+          "social": {
+            "like": 1238,
+            "comment": 8,
+            "share": 780
+          }
+        }
+      }
+    ]
+  }
+}
