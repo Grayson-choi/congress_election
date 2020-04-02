@@ -8,10 +8,13 @@ from selenium.webdriver.support.ui import Select
 
 
 browser = webdriver.Chrome("./chromedriver")
+# 윈도우는 아래 코드를 실행
+# browser = webdriver.Chrome("./chromedriver.exe")
+
+
+
 browser.get("http://info.nec.go.kr/main/showDocument.xhtml?electionId=0020200415&topMenuId=CP&secondMenuId=CPRI03")
 time.sleep(4)
-
-
 
 # candidate = input("궁금한 후보자를 입력하세요. >> ")
 # 선거 사이트로 이동
@@ -30,14 +33,12 @@ city_list = list(map(lambda x: x.text, city_list))
 select_city.select_by_visible_text("서울특별시")
 time.sleep(1)
 
-
-
 # 선거구 선택 sggCityCode
 select_sgg = Select(browser.find_element_by_id("sggCityCode"))
 sgg_list = browser.find_elements_by_css_selector("select#sggCityCode > option")
 sgg_list = list(map(lambda x: x.text, sgg_list))
 time.sleep(1)
-# 선거구 종로구 선g
+# 선거구 종로구 선거 선택
 select_sgg.select_by_visible_text("종로구")
 time.sleep(1)
 
@@ -55,9 +56,9 @@ candidate_image_list = browser.find_elements_by_css_selector("table#table01 tr i
 candidate_image_list = list(map(lambda  x: x.get_attribute('src'), candidate_image_list))
 print(candidate_image_list)
 
-# 이미지 저장
-for index, value in enumerate(candidate_image_list):
-    req.urlretrieve(value, f"./image/{index}.png")
+# # 이미지 저장
+# for index, value in enumerate(candidate_image_list):
+#     req.urlretrieve(value, f"./image/{index}.png")
 
 # time.sleep(5)
 # browser.quit()
