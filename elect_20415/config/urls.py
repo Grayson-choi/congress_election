@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('kakao/', include('kakao.urls')),
+    path('election/', include('crawl_elect.urls')),
 ]
