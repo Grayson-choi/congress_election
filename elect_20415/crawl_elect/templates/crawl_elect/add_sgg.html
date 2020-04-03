@@ -1,0 +1,13 @@
+<h1>Hello</h1>
+{% for sgg in dong_list %}
+  {% for k, v in sgg.items %}
+    {% if k == 'pic' %}
+    <img src="{{ v }}" alt="">
+    {% else %}
+    <p>{{ k }} : {{ v }}</p>
+    {% endif %}
+  {% endfor%}
+    <hr>
+{% endfor %}
+<hr>
+

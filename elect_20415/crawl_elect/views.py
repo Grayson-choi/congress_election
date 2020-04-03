@@ -4,8 +4,9 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 import election_test
+import craw_sgg
+from .models import Candidate, Precinct
 
-from .models import Candidate
 # Create your views here.
 
 def index(request):
@@ -35,3 +36,18 @@ def index(request):
     }
 
     return render(request, 'crawl_elect/index.html', context)
+
+def add_sgg(request):
+    dong_list = craw_sgg.sgg_crawl()
+
+    context = {
+        'dong_list': dong_list
+        # 'pic': pic
+    }
+
+    # 디비에 넣는 코드
+    for dong in dong_list:
+        dong_db = Precinct(**dong)
+        dong_db.save()
+
+    return render(request, 'crawl_elect/add_sgg.html', context)
