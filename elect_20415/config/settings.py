@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'crawl_elect',
     'kakao',
     'django.contrib.admin',
     'django.contrib.auth',

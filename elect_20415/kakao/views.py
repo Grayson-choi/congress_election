@@ -28,7 +28,7 @@ def checkserver(request):
     pprint(req)
     print('***'*20)
     img = "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-    json_res = makeMessage(SIM_CARD, img, 'hello kakao', 1)
+    json_res = makeMessage(SIM_IMG, img, 'hello kakao', 1)
 
     return JsonResponse(json_res, safe=False)
 
