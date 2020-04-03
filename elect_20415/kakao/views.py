@@ -1,15 +1,32 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.http import HttpResponse
 import json
 
 from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
+from django.db import models
+from crawl_elect.models import Candidate, Precinct
+
+
 
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'kakao/index.html')
+    key_list = [
+        'ep', 'pic', 'num', 'belong', 'name',
+        'gender', 'birth', 'address', 'job', 'level',
+        'career', 'wealth', 'military', 'tax_total', 'tax_5y',
+        'tax_defalt', 'crim_cnt', 'candi_cnt'
+    ]
+
+    candidates = Candidate.objects.all()
+    context = {
+        'candidates':candidates
+    }
+
+    return render(request, 'kakao/index.html', context)
 
 
 SIM_MSG = 0
@@ -118,3 +135,48 @@ def makeBtn(*args):
     return result
 
 
+
+# Create your views here.
+def keyboard(request):
+    return JsonResponse({
+        'type': 'text'
+    })
+
+@csrf_exempt
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    if return_str == '삼청동':
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "삼청동"
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '처음으로',
+                    'action': 'message',
+                    'messageText': '처음으로'
+                }]
+            }
+        })
+    else:
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "테스트 성공입니다."
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '처음으로',
+                    'action': 'message',
+                    'messageText': '처음으로'
+                }]
+            }
+        })
