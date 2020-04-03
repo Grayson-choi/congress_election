@@ -71,7 +71,8 @@ def crawl():
     options.add_argument('window-size=1920x1080')
     options.add_argument("disable-gpu")
     # 혹은 options.add_argument("--disable-gpu")
-    browser = webdriver.Chrome("E:\dev\pydev\elect\congress_election\chromedriver_win.exe", chrome_options=options)
+    browser = webdriver.Chrome("/Users/jw/Desktop/study/project/congress_election/chromedriver", options=options)
+    # browser = webdriver.Chrome("./chromedriver")
     browser.get("http://info.nec.go.kr/main/showDocument.xhtml?electionId=0020200415&topMenuId=CP&secondMenuId=CPRI03")
     time.sleep(4)
 
@@ -80,13 +81,16 @@ def crawl():
     time.sleep(2)
 
     #도시 선택 cityCode
-    select_city = Select(browser.find_element_by_id('cityCode'))
+
     city_list = browser.find_elements_by_css_selector("select#cityCode > option")
     city_list = list(map(lambda x: x.text, city_list))
     city_list = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
-
+    all_candidate_list = []
+    all_candidate_image_list = []
 
     for city in city_list:
+        print("도시: "+city)
+        select_city = Select(browser.find_element_by_id('cityCode'))
         #서울 특별시 선택
         select_city.select_by_visible_text(city)
         time.sleep(1)
@@ -97,6 +101,7 @@ def crawl():
         time.sleep(1)
 
         for sgg in sgg_list:
+            print("선거구: " + sgg)
             select_sgg = Select(browser.find_element_by_id("sggCityCode"))
             # 선거구 종로구 선거 선택
             select_sgg.select_by_visible_text(sgg)
@@ -108,16 +113,28 @@ def crawl():
             # 국회의원 정보 크롤
             candidate_list = browser.find_elements_by_css_selector("table#table01 td")
             candidate_list = list(map(lambda x: x.text, candidate_list))
-            # print(candidate_list)
+            all_candidate_list += candidate_list
 
             # 국회의원 얼굴 이미지 URL 크롤링
             candidate_image_list = browser.find_elements_by_css_selector("table#table01 tr input[type=image]")
             candidate_image_list = list(map(lambda  x: x.get_attribute('src'), candidate_image_list))
             # print(candidate_image_list)
+            # print(candidate_list, candidate_image_list)
+            all_candidate_image_list += candidate_image_list
 
 
+        browser.get("http://info.nec.go.kr/main/showDocument.xhtml?electionId=0020200415&topMenuId=CP&secondMenuId=CPRI03")
+        time.sleep(4)
 
-    return candidate_list, candidate_image_list
+        # 국회의원 선거 클릭
+        browser.find_element_by_css_selector("#electionId2").click()
+        time.sleep(2)
+        print(all_candidate_list)
+        print(all_candidate_image_list)
+
+    return all_candidate_list, all_candidate_image_list
+
+# crawl()
 
 
 if __name__ == "__main__":

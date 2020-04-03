@@ -6,7 +6,6 @@
       <change afterPath="$PROJECT_DIR$/../../Python/python_basic/for.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Python/python_basic/while.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Python/python_basic/while_input.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elect_20415/crawl_elect/templates/crawl_elect/add_sgg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Javascript/chobo_by_jiwoong/problem_clap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Javascript/chobo_by_jiwoong/problem_clap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Javascript/chobo_by_jiwoong/problem_findKim.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Javascript/chobo_by_jiwoong/problem_findKim.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Javascript/chobo_by_jiwoong/star.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Javascript/chobo_by_jiwoong/star.js" afterDir="false" />
@@ -21,10 +20,9 @@
       <change beforePath="$PROJECT_DIR$/../../datascience/data_for_datascience" beforeDir="false" afterPath="$PROJECT_DIR$/../../datascience/data_for_datascience" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 1 - Data Preprocessing/Section 2 -------------------- Part 1 - Data Preprocessing --------------------/categorical_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 1 - Data Preprocessing/Section 2 -------------------- Part 1 - Data Preprocessing --------------------/categorical_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 2 - Regression/Section 5 - Multiple Linear Regression/Multiple_Linear_Regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 2 - Regression/Section 5 - Multiple Linear Regression/Multiple_Linear_Regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/craw_sgg.py" beforeDir="false" afterPath="$PROJECT_DIR$/craw_sgg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elect_20415/crawl_elect/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/crawl_elect/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elect_20415/crawl_elect/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/crawl_elect/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elect_20415/crawl_elect/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/crawl_elect/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elect_20415/crawl_elect/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/crawl_elect/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elect_20415/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/election_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/election_test.py" afterDir="false" />
     </list>
@@ -38,11 +36,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.54827756">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1280">
-                  <caret line="40" column="23" lean-forward="true" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+                <state relative-caret-position="992">
+                  <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -53,8 +51,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/craw_sgg.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="39" selection-start-line="39" selection-end-line="48" />
+                <state relative-caret-position="626">
+                  <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
                   <folding>
                     <element signature="e#0#30#0" expanded="true" />
                   </folding>
@@ -94,19 +92,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/templates/crawl_elect/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-line="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/election_test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="298">
-                  <caret line="94" selection-start-line="94" selection-end-line="94" />
+                <state relative-caret-position="657">
+                  <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
                   <folding>
                     <element signature="e#0#30#0" expanded="true" />
                   </folding>
@@ -115,14 +104,28 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/elect_20415/kakao/tests.py">
-              <provider selected="true" editor-type-id="text-editor" />
+            <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/admin.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="6" selection-start-line="6" selection-end-line="6" />
+                  <folding>
+                    <element signature="e#0#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/election_test_win.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-3070" />
+              </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="428">
+                <state relative-caret-position="560">
                   <caret line="26" column="14" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="14" />
                 </state>
               </provider>
@@ -158,16 +161,17 @@
         <option value="$PROJECT_DIR$/elect_20415/kakao/tests.py" />
         <option value="$PROJECT_DIR$/elect_20415/kakao/views.py" />
         <option value="$PROJECT_DIR$/basic/election_test.py" />
-        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/models.py" />
         <option value="$PROJECT_DIR$/elect_20415/crawl_elect/templates/crawl_elect/add_sgg.html" />
         <option value="$PROJECT_DIR$/elect_20415/crawl_elect/urls.py" />
-        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/views.py" />
-        <option value="$PROJECT_DIR$/craw_sgg.py" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/admin.py" />
         <option value="$PROJECT_DIR$/election_test.py" />
+        <option value="$PROJECT_DIR$/craw_sgg.py" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/models.py" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/views.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-535" />
     <option name="y" value="-1417" />
     <option name="width" value="2560" />
@@ -238,6 +242,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/elect_20415" />
@@ -255,7 +262,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.craw_sgg">
+  <component name="RunManager" selected="Python.election_test">
     <configuration name="craw_sgg" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="congress_election" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -321,8 +328,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.craw_sgg" />
         <item itemvalue="Python.election_test" />
+        <item itemvalue="Python.craw_sgg" />
         <item itemvalue="Python.views" />
       </list>
     </recent_temporary>
@@ -341,7 +348,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-535" y="-1417" width="2560" height="1417" extended-state="6" />
+    <frame x="-535" y="-1417" width="2560" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1866614" />
@@ -471,22 +478,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/views.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/config/settings.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/config/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="40" column="23" lean-forward="true" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+        <state relative-caret-position="192">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -501,28 +507,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/config/settings.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/config/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/craw_sgg.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="39" selection-start-line="39" selection-end-line="48" />
+        <state relative-caret-position="560">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/election_test_win.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3070" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/election_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/election_test.py">
+    <entry file="file://$PROJECT_DIR$/craw_sgg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="626">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="992">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
