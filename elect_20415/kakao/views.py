@@ -6,7 +6,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
 from django.db import models
-from crawl_elect.models import Candidate, Precinct
+from crawl_elect.models import Candidate
 
 
 
@@ -17,6 +17,14 @@ def index(request):
 
     candidates = Candidate.objects.all()
 
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
+
     context = {
         'candidates': candidates
     }
@@ -24,10 +32,79 @@ def index(request):
     return render(request, 'kakao/index.html', context)
 
 
-def search(request):
-    filter_candidates = Candidate.objects.filter(ep=sgg)
+def filter_candidates(request, sgg):
+
+    candidates = Candidate.objects.filter(ep=sgg).order_by('num')
+
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
 
 
+
+    context = {
+        'candidates': candidates
+    }
+
+
+    return render(request, 'kakao/filter.html', context)
+
+@csrf_exempt
+def send_url(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+    print(return_json_str)
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': f"2020 국회의원 선거 후보자 정보입니다.\nhttps://568cb99c.ngrok.io/kakao/filter/{return_str}"
+                }
+            }],
+            'quickReplies': [{
+                'label': '처음으로',
+                'action': 'message',
+                'messageText': '처음으로'
+            }]
+        }
+    })
+
+
+
+
+# Create your views here.
+def keyboard(request):
+    return JsonResponse({
+        'type': 'text'
+    })
+
+@csrf_exempt
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://568cb99c.ngrok.io/kakao/"
+                }
+            }],
+            'quickReplies': [{
+                'label': '처음으로',
+                'action': 'message',
+                'messageText': '처음으로'
+            }]
+        }
+    })
 
 
 SIM_MSG = 0
@@ -42,16 +119,16 @@ BTN_LNK = 1
 def checkserver(request):
     req = json.loads(request.body)
 
-    print('---'*20)
+    print('---' * 20)
     pprint(req)
-    print('***'*20)
+    print('***' * 20)
     img = "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
     json_res = makeMessage(SIM_IMG, img, 'hello kakao', 1)
 
     return JsonResponse(json_res, safe=False)
 
-def makeMessage(type, *args):
 
+def makeMessage(type, *args):
     if type == SIM_MSG:
         output = {
             "simpleText": {
@@ -67,7 +144,7 @@ def makeMessage(type, *args):
         }
     elif type == SIM_CARD:
         output = makeCard()
-    
+
     message = {
         "version": "2.0",
         "template": {
@@ -79,8 +156,8 @@ def makeMessage(type, *args):
 
     return message
 
-def makeCard():
 
+def makeCard():
     btns = makeButton()
 
     result = {
@@ -98,7 +175,7 @@ def makeCard():
                     "messageText": "짜잔! 우리가 찾던 보물입니다"
                 },
                 {
-                    "action":  "webLink",
+                    "action": "webLink",
                     "label": "구경하기",
                     "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
                 }
@@ -121,7 +198,6 @@ def makeCard():
 
 
 def makeBtn(*args):
-
     result = []
 
     for i in range(num):
@@ -132,53 +208,5 @@ def makeBtn(*args):
         btn['webLinkUrl'] = args[i][2]
         btn['messageText'] = args[i][2]
 
-    
     return result
 
-
-
-
-# Create your views here.
-def keyboard(request):
-    return JsonResponse({
-        'type': 'text'
-    })
-
-@csrf_exempt
-def message(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
-
-    if return_str == '후보자':
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://0d328970.ngrok.io/kakao/"
-                    }
-                }],
-                'quickReplies': [{
-                    'label': '처음으로',
-                    'action': 'message',
-                    'messageText': '처음으로'
-                }]
-            }
-        })
-    else:
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://0d328970.ngrok.io/kakao/"
-                    }
-                }],
-                'quickReplies': [{
-                    'label': '처음으로',
-                    'action': 'message',
-                    'messageText': '처음으로'
-                }]
-            }
-        })

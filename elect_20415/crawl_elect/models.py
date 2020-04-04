@@ -24,10 +24,10 @@ class Candidate(models.Model):
     def __str__(self):
         return self.name
 
-class Precinct(models.Model):
-    election = models.CharField(max_length=20) # 선거구
-    sigun = models.CharField(max_length=20) # 시군구
-    admin_location = models.CharField(max_length=20) # 행정동
-
-    def __str__(self):
-        return self.election + ": " + self.sigun + ": " + self.admin_location
+# class Precinct(models.Model):
+#     election = models.CharField(max_length=20) # 선거구
+#     sigun = models.CharField(max_length=20) # 시군구
+#     admin_location = models.CharField(max_length=20) # 행정동
+#
+#     def __str__(self):
+#         return self.election + ": " + self.sigun + ": " + self.admin_location

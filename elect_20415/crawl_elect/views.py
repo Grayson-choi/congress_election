@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 import election_test
 import craw_sgg
-from .models import Candidate, Precinct
+from .models import Candidate
 
 # Create your views here.
 
@@ -51,3 +51,13 @@ def add_sgg(request):
         dong_db.save()
 
     return render(request, 'crawl_elect/add_sgg.html', context)
+
+
+def delete_sgg(request):
+    Precinct.objects.all().delete()
+
+    context = {
+
+    }
+    return render(request, 'crawl_elect_delete_sgg.html', context)
+
