@@ -25,9 +25,16 @@ class Candidate(models.Model):
         return self.name
 
 class Precinct(models.Model):
-    election = models.CharField(max_length=20) # 선거구
+    city = models.CharField(max_length=20) # 특별시, 광역시, 도
     sigun = models.CharField(max_length=20) # 시군구
-    admin_location = models.CharField(max_length=20) # 행정동
+    dong = models.CharField(max_length=20) # 행정동
+
+    sgg = models.CharField(max_length=20) # 선거구
 
     def __str__(self):
-        return self.election + ": " + self.sigun + ": " + self.admin_location
+        return f'City: {city} / Sigun: {sigun} / Dong: {dong} => {sgg}'
+
+
+# class Gusigun(models.Model):
+#     precint = models.ForeignKey(Precinct, on_delete=models.CASCADE)
+#     gu = models.CharField(max_length=20)

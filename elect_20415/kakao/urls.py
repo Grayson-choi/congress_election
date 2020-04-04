@@ -7,5 +7,8 @@ app_name = 'kakao'
 urlpatterns = [
     path('', views.index, name='index'),
     path('checksever/', views.checkserver, name='chkserver'),
-    path('message/', views.message, name='message')
+    path('message/', views.message, name='message'),
+    path('context/', views.context),
+    path('context2/', views.context2),
+    path('context3/', views.context3),
 ]

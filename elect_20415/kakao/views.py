@@ -12,6 +12,7 @@ from crawl_elect.models import Candidate, Precinct
 
 
 
+
 # Create your views here.
 def index(request):
 
@@ -182,3 +183,110 @@ def message(request):
                 }]
             }
         })
+
+from pprint import pprint
+
+@csrf_exempt
+def context(request):
+    answer = ((request.body).decode('utf-8'))
+    res = json.loads(answer)
+
+    pprint(res)
+
+    output ={
+        "version": "2.0",
+        "context": {
+            "values": [
+                {
+                    "name": "con_1",
+                    "params": {
+                        "key1": "val_1",
+                        "key2": f"{res['userRequest']['utterance']}",
+                    }
+                }
+            ]
+        },
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": "컨텍스트 1"
+                    }
+                }
+            ]
+        }
+    }
+    return JsonResponse(output)
+
+
+@csrf_exempt
+def context2(request):
+    answer = ((request.body).decode('utf-8'))
+    res = json.loads(answer)
+
+    pprint(res)
+
+    output ={
+        "version": "2.0",
+        "context": {
+            "values": [
+                {
+                    "name": "c_2",
+                    "lifeSpan": 10,
+                    "params": {
+                    "key2": "여기 컨텍스트 두번째 데이터 저장 되었습니다.",
+                    }
+                },
+            ]
+        },
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": "컨텍스트 2"
+                    }
+                }
+            ]
+        }
+    }
+    return JsonResponse(output)
+
+@csrf_exempt
+def context3(request):
+    answer = ((request.body).decode('utf-8'))
+    res = json.loads(answer)
+
+    pprint(res)
+
+    # c_1 = res.get('contexts')[0]
+    # c_1 = c_1.get('params').get('key1').get("value") # 첫번째 블록에서 전달된 내용
+
+    # c_2 = res.get('contexts')[1]
+    # c_2 = c_2.get('params').get('key3').get("value") # 두번째 블록에서 전달된 내용
+    c_1= '1'
+    c_2='2'
+    output ={
+        "version": "2.0",
+        "context": {
+            "values": [
+                {
+                    "name": "c_1",
+                    "lifeSpan": 0,
+                },
+                {
+                    "name": "c_2",
+                    "lifeSpan": 0,
+                },
+            ]
+        },
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": f"컨텍스트 3\n{c_1}\n{c_2}"
+                    }
+                }
+            ]
+        }
+    }
+    return JsonResponse(output)

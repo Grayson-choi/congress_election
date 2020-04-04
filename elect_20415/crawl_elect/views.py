@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 import election_test
 import craw_sgg
-from .models import Candidate, Precinct
+from .models import Candidate, Precinct#, Location
 
 # Create your views here.
 
@@ -51,3 +51,23 @@ def add_sgg(request):
         dong_db.save()
 
     return render(request, 'crawl_elect/add_sgg.html', context)
+
+
+def add_location(request):
+    import csv
+    import os
+    workpath = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(workpath, 'static', 'handb.csv')
+    with open(csv_path, newline='', encoding='utf-8') as emdfile:
+        emdreader = csv.DictReader(emdfile)
+        for row in emdreader:
+            if 'heng' != '':
+                gu = row['gu'].replace(' ', '')
+                heng = row['heng'].replace(',', '·')
+                heng = heng.replace('.', '·')
+                pre = Precinct.objects.filter(sigun=gu, admin_location=row['heng']).first()
+                
+                if not pre:
+                    print('gu:', gu,'heng:', row['heng'])
+
+    return render(request, 'crawl_elect/emd.html')
