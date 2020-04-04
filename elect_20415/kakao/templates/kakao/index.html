@@ -46,24 +46,26 @@ table {
 table td,
 table th {
   color: #2b686e;
-  padding: 10px;
+
 }
 table td {
   text-align: center;
   vertical-align: middle;
+  padding: 1rem;
 }
 
 table th {
   background-color: #daeff1;
   font-weight: 300;
   text-align: center;
-  width:5%;
+
 }
-.small {
+
+.large {
   background-color: #daeff1;
   font-weight: 300;
   text-align: center;
-  padding: 5px;
+  width: 6%;
 }
 
 table tr:nth-child(2n) {
@@ -231,12 +233,13 @@ table tr:nth-child(2n + 1) {
     <table cellspacing="0">
         <tr>
             <th><B>사진</B></th>
-            <th class="n"><B>이름</B></th>
-            <th class="small"><B>선거구</B></th>
+            <th><B>이름</B></th>
+            <th><B>선거구</B></th>
             <th class="small"><B>기호</B></th>
-            <th><B>소속정당</B></th>
+            <th class="large"><B>소속정당</B></th>
             <th class="small"><B>성별</B></th>
-            <th><B>생년월일(연령)</B></th>
+            <th><B>생년월일<br>(연령)</B></th>
+
             <th><B>주소</B></th>
             <th><B>직업</B></th>
             <th><B>학력</B></th>
@@ -254,7 +257,7 @@ table tr:nth-child(2n + 1) {
             <td class="profile"><img src = {{candidate.pic}}></td> <!-- 사진 -->
             <td>{{candidate.name}}</td> <!-- 이름 -->
             <td>{{candidate.ep}}</td>  <!-- 선거구 -->
-            <td>{{candidate.num}}번</td> <!-- 기호 -->
+            <td>{{candidate.num}}</td> <!-- 기호 -->
             <td>{{candidate.belong}}</td> <!-- 소속 정당 -->
 
             <td>{{candidate.gender}}</td> <!-- 성별 -->
