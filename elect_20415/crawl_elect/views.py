@@ -51,13 +51,3 @@ def add_sgg(request):
         dong_db.save()
 
     return render(request, 'crawl_elect/add_sgg.html', context)
-
-
-def delete_sgg(request):
-    Precinct.objects.all().delete()
-
-    context = {
-
-    }
-    return render(request, 'crawl_elect_delete_sgg.html', context)
-
