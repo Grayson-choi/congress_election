@@ -14,19 +14,20 @@ from crawl_elect.models import Candidate, Precinct
 
 # Create your views here.
 def index(request):
-    key_list = [
-        'ep', 'pic', 'num', 'belong', 'name',
-        'gender', 'birth', 'address', 'job', 'level',
-        'career', 'wealth', 'military', 'tax_total', 'tax_5y',
-        'tax_defalt', 'crim_cnt', 'candi_cnt'
-    ]
 
     candidates = Candidate.objects.all()
+
     context = {
-        'candidates':candidates
+        'candidates': candidates
     }
 
     return render(request, 'kakao/index.html', context)
+
+
+def search(request):
+    filter_candidates = Candidate.objects.filter(ep=sgg)
+
+
 
 
 SIM_MSG = 0
@@ -136,6 +137,7 @@ def makeBtn(*args):
 
 
 
+
 # Create your views here.
 def keyboard(request):
     return JsonResponse({
@@ -148,13 +150,13 @@ def message(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == '삼청동':
+    if return_str == '후보자':
         return JsonResponse({
             'version': "2.0",
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "삼청동"
+                        'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://0d328970.ngrok.io/kakao/"
                     }
                 }],
                 'quickReplies': [{
@@ -170,7 +172,7 @@ def message(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "테스트 성공입니다."
+                        'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://0d328970.ngrok.io/kakao/"
                     }
                 }],
                 'quickReplies': [{
