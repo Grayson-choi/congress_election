@@ -33,8 +33,3 @@ class Precinct(models.Model):
 
     def __str__(self):
         return f'City: {city} / Sigun: {sigun} / Dong: {dong} => {sgg}'
-
-
-# class Gusigun(models.Model):
-#     precint = models.ForeignKey(Precinct, on_delete=models.CASCADE)
-#     gu = models.CharField(max_length=20)
