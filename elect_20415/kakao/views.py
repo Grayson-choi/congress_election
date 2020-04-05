@@ -58,21 +58,28 @@ def filter_candidates(request, sgg):
 def send_url(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
+
+    return_str = return_json_str['action']['params']['sgg']
     print(return_json_str)
+    # print(return_str)
+    # print(return_json_str['action']['params']['sgg'])
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': f"2020 국회의원 선거 후보자 정보입니다.\nhttps://568cb99c.ngrok.io/kakao/filter/{return_str}"
+                    'text': f"2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/filter/{return_str}"
                 }
             }],
-            'quickReplies': [{
-                'label': '처음으로',
+            'quickReplies': [
+                {'label': '전체 조회',
                 'action': 'message',
-                'messageText': '처음으로'
-            }]
+                'messageText': '전체 후보자 조회'},
+                {'label': '선거구별 조회',
+                'action': 'message',
+                'messageText': '선거구별 조회'
+                }
+            ]
         }
     })
 
@@ -96,7 +103,7 @@ def message(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://568cb99c.ngrok.io/kakao/"
+                    'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/"
                 }
             }],
             'quickReplies': [{
