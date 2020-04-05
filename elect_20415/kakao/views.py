@@ -6,7 +6,9 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
 from django.db import models
-from crawl_elect.models import Candidate,Precinct
+
+from crawl_elect.models import Candidate, Precinct
+
 
 
 
@@ -426,3 +428,102 @@ def context3(request):
     }
     return JsonResponse(output)
 
+@csrf_exempt
+def name(request):
+    answer = ((request.body).decode('utf-8'))
+    res = json.loads(answer)
+
+    # pprint(res)
+    name = res.get('action').get('params').get('HuboName')
+
+    output = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "basicCard": {
+                    "title": f"{name} 후보자 정보",
+                    "description": "아래 버튼을 눌러주세요.",
+                    # "thumbnail": {
+                    #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                    # },
+
+                    "buttons": [
+                        {
+                            "action": "webLink",
+                            "label": "후보자 확인",
+                            "webLinkUrl": f"https://05e30a2c.ngrok.io/kakao/searchname/{name}"
+                        }
+                    ],
+                }
+                }
+            ]
+        }
+    }
+
+    return JsonResponse(output)
+
+
+def search_name(request, name):
+    candidates = Candidate.objects.filter(name__contains=name)
+
+    context = {
+        'candidates': candidates
+    }
+
+    return render(request, 'kakao/filter.html', context)
+
+@csrf_exempt
+def juso(request):
+    answer = ((request.body).decode('utf-8'))
+    res = json.loads(answer)
+
+    # pprint(res)
+    sigun = res.get('action').get('params').get('sigun')
+    dong = res.get('action').get('params').get('dong')
+
+    juso = f'{sigun}_{dong}'
+
+    output = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "basicCard": {
+                    "title": f"{juso} 후보자 정보",
+                    "description": "아래 버튼을 눌러주세요.",
+                    # "thumbnail": {
+                    #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                    # },
+
+                    "buttons": [
+                        {
+                            "action": "webLink",
+                            "label": "후보자 확인",
+                            "webLinkUrl": f"https://05e30a2c.ngrok.io/kakao/searchjuso/{juso}"
+                        }
+                    ],
+                }
+                }
+            ]
+        }
+    }
+
+    return JsonResponse(output)
+
+def search_juso(request, juso):
+    sigun, dong = juso.split('_')
+
+    # print(sigun[:2], dong[:2])
+    data = Precinct.objects.filter(sigun__contains=sigun[:2], dong__contains=dong[:2]).first()
+    # print(data)
+
+    if data:
+        candidates = Candidate.objects.filter(ep=data.sgg)
+    else:
+        candidates = []
+    context = {
+        'candidates': candidates
+    }
+
+    return render(request, 'kakao/filter.html', context)

@@ -14,7 +14,9 @@ urlpatterns = [
     path('message/', views.message, name='message') ,
     path('filter/<str:sgg>/', views.filter_candidates, name='filter'),
     path('send_url/', views.send_url, name='send_url'),
-    path('search_sgg/', views.search_sgg, name='search_sgg'),
-    path('name/<str:name>/', views.name_candidates, name='search_name'),
-    path('name/', views.filter_name, name='filter_name')
+    path('name/', views.name, name="name"),
+    path('searchname/<str:name>/', views.search_name, name="search_name"),
+    path('juso/', views.juso, name='juso'),
+    path('searchjuso/<str:juso>/', views.search_juso, name="search_juso"),
+
 ]
