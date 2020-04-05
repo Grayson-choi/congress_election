@@ -80,6 +80,39 @@ def name_candidates(request, name):
 
     return render(request, 'kakao/name.html', context)
 
+@csrf_exempt
+def filter_name(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+
+    return_str = return_json_str['action']['params']['sgg']
+    print(return_json_str)
+    # print(return_str)
+    # print(return_json_str['action']['params']['sgg'])
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': f"2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/name/{return_str}"
+                }
+            }],
+            'quickReplies': [
+                {'label': '전체 조회',
+                'action': 'message',
+                'messageText': '전체 후보자 조회'},
+                {'label': '선거구별 조회',
+                'action': 'message',
+                'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
+            ]
+        }
+    })
+
+
+
 
 
 
