@@ -5,7 +5,12 @@ from bs4 import BeautifulSoup
 import urllib.parse as par
 import os
 from selenium.webdriver.support.ui import Select
-
+from bs4 import BeautifulSoup
+import urllib.request as req
+import os
+import openpyxl
+from datetime import datetime
+import re
 
 def sgg_crawl():
     options = webdriver.ChromeOptions()
@@ -30,6 +35,7 @@ def sgg_crawl():
     city_list = browser.find_elements_by_css_selector("select#cityCode > option")
     city_list = list(map(lambda x: x.text, city_list))
     city_list = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
+    print(len(city_list))
     dong_list = []
 
     confirm_sgg = ""
@@ -60,10 +66,10 @@ def sgg_crawl():
                     dic = {}
                     if not sgg:
                         sgg = confirm_sgg
-
-                    dic["election"] = sgg
+                    dic["city"] = city
                     dic["sigun"] = sigun
-                    dic["admin_location"] = i
+                    dic["dong"] = i
+                    dic["sgg"] = sgg
                     dong_list.append(dic)
                     confirm_sgg = sgg
                 cnt += 1
@@ -81,9 +87,50 @@ def sgg_crawl():
 
     return dong_list
 
-
-# sgg_crawl()
-
+#
+# dong_list = sgg_crawl()
+#
+# # 엑셀 파일 있는지 먼저 확인
+# excel_dir = "./멜론_크롤링.xlsx"
+#
+# if not os.path.exists(excel_dir):  # 파일이 존재하지 않으면, 파일 생성
+#     openpyxl.Workbook().save(excel_dir)
+#
+# # 엑셀 파일 불러오기
+# book = openpyxl.load_workbook(excel_dir)
+# # 새로운 시트 생성, 시트 이름은 현재 날짜,시간(**년**월**일**시**분**초)
+# sheet = book.create_sheet()
+# now = datetime.now()
+# sheet.title = "{}년{}월{}일{}시{}분{}초".format(now.year, now.month, now.day, now.hour, now.minute, now.second)
+# # 불필요한 시트는 지운다.
+# if "Sheet" in book.sheetnames:
+#     book.remove(book["Sheet"])
+# # 열너비 조절
+# sheet.column_dimensions["A"].width = 15
+# sheet.column_dimensions["B"].width = 30
+# sheet.column_dimensions["C"].width = 20
+#
+# for i in range(len(title)):
+#     # 행높이 조절
+#     sheet.row_dimensions[i + 1].height = 92.4
+#
+#     img_file_name = img_dir + "/" + re.sub("[\\\/:*?\"<>\|]", " ", title[i].string) + ".png"
+#
+#     req.urlretrieve(img[i].attrs["src"], img_file_name)  # 앨범 이미지 저장
+#     print("{}위 : {} - {}".format(i + 1, title[i].string, name[i].text))
+#
+#     # 앨범이미지 추가
+#     img_for_excel = Image(img_file_name)
+#     sheet.add_image(img_for_excel, "A" + str(i + 1))
+#     # 노래제목 추가
+#     sheet.cell(row=i + 1, column=2).value = title[i].string
+#     # 가수이름 추가
+#     sheet.cell(row=i + 1, column=3).value = name[i].text
+#     # 앨범이름 추가
+#     sheet.cell(row=i + 1, column=4).value = album[i].string
+#     # 한 행 기록할 때마다 바로 저장
+#     book.save(excel_dir)
+#
 
     # cnt = 0
     # while True:

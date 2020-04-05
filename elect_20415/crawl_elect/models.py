@@ -32,4 +32,4 @@ class Precinct(models.Model):
     sgg = models.CharField(max_length=20) # 선거구
 
     def __str__(self):
-        return f'City: {city} / Sigun: {sigun} / Dong: {dong} => {sgg}'
+        return f'City: {self.city} / Sigun: {self.sigun} / Dong: {self.dong} => {self.sgg}'

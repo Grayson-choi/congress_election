@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('sgg/', views.add_sg)
+    path('sgg/', views.add_sgg)
 ]

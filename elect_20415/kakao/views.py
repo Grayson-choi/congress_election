@@ -268,17 +268,6 @@ def context(request):
 
     output ={
         "version": "2.0",
-        "context": {
-            "values": [
-                {
-                    "name": "con_1",
-                    "params": {
-                        "key1": "val_1",
-                        "key2": f"{res['userRequest']['utterance']}",
-                    }
-                }
-            ]
-        },
         "template": {
             "outputs": [
                 {

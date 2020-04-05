@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 import election_test
 import craw_sgg
-from .models import Candidate
+from .models import Candidate, Precinct
 
 # Create your views here.
 
