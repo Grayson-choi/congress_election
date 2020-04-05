@@ -6,9 +6,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
 from django.db import models
-from crawl_elect.models import Candidate
-
-
+from crawl_elect.models import Candidate,Precinct
 
 
 
@@ -32,9 +30,21 @@ def index(request):
 
     return render(request, 'kakao/index.html', context)
 
+def search_sgg(request, dong):
+    all_sgg = Precinct.objects.all()
+
+    sggs = Precinct.objects.filter(dong=dong)
+
+    sgg_list = []
+
+    context = {
+        'sggs': all_sgg
+    }
+    return render(request, 'kakao/search_sgg.html', context)
+
 
 def filter_candidates(request, sgg):
-
+    #선거구 별 후보 조회
     candidates = Candidate.objects.filter(ep=sgg).order_by('num')
 
     for candidate in candidates:
@@ -45,14 +55,33 @@ def filter_candidates(request, sgg):
         else:
             candidate.military = "-"
 
+    context = {
+        'candidates': candidates
+    }
 
+    return render(request, 'kakao/filter.html', context)
+
+
+def name_candidates(request, name):
+    # 이름으로 후보자 조회
+    candidates = Candidate.objects.filter(name__contains=name)
+
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
 
     context = {
         'candidates': candidates
     }
 
+    return render(request, 'kakao/name.html', context)
 
-    return render(request, 'kakao/filter.html', context)
+
+
 
 @csrf_exempt
 def send_url(request):
@@ -77,11 +106,15 @@ def send_url(request):
                 'messageText': '전체 후보자 조회'},
                 {'label': '선거구별 조회',
                 'action': 'message',
-                'messageText': '선거구별 조회'
-                }
+                'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
             ]
         }
     })
+
+
 
 
 

@@ -13,5 +13,7 @@ urlpatterns = [
     path('context3/', views.context3),
     path('message/', views.message, name='message') ,
     path('filter/<str:sgg>/', views.filter_candidates, name='filter'),
-    path('send_url/', views.send_url, name='send_url')
+    path('send_url/', views.send_url, name='send_url'),
+    path('search_sgg/', views.search_sgg, name='search_sgg'),
+    path('name/<str:name>/', views.name_candidates, name='search_name')
 ]
