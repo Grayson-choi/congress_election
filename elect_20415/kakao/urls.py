@@ -13,5 +13,6 @@ urlpatterns = [
     path('searchname/<str:name>/', views.search_name, name="search_name"),
     path('juso/', views.juso, name='juso'),
     path('searchjuso/<str:juso>/', views.search_juso, name="search_juso"),
-
+    path('jungdang/', views.jungdang, name='jungdang'),
+    path('searchjungdang/<str:jungdang>/', views.search_jungdang, name="search_jungdang")
 ]

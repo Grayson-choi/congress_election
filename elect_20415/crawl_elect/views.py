@@ -6,7 +6,8 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(
 import election_test
 import craw_sgg
 import election_url
-from .models import Candidate, Precinct
+import brae_election_url
+from .models import Candidate, Precinct, Brae
 
 # Create your views here.
 
@@ -49,6 +50,7 @@ def update_candidate(request):
         'career', 'wealth', 'military', 'tax_total', 'tax_5y',
         'tax_defalt', 'crim_cnt', 'candi_cnt'
     ]
+
     cand_list = []
     for cnt in range(len(li) // 18):
         data = dict(zip(key_list, li[cnt * 18: (cnt + 1) * 18]))
@@ -87,3 +89,34 @@ def add_sgg(request):
         dong_db.save()
 
     return render(request, 'crawl_elect/add_sgg.html', context)
+
+def brae_add(request):
+    li, pic, detail_url, gong_url = brae_election_url.crawl()
+
+    key_list = [
+        'ep', 'pic', 'belong', 'suggest_num', 'name',
+        'gender', 'birth', 'address', 'job', 'level',
+        'career', 'wealth', 'military', 'tax_total', 'tax_5y',
+        'tax_defalt', 'crim_cnt', 'candi_cnt'
+    ]
+
+    cand_list = []
+    for cnt in range(len(li) // 18):
+        data = dict(zip(key_list, li[cnt * 18: (cnt + 1) * 18]))
+        data['pic'] = pic[cnt]
+        data['detail_url'] = detail_url[cnt]
+        data['gong_url'] = gong_url[cnt]
+        cand_list.append(data)
+
+    # 새로 만드는 코드
+    for candi in cand_list:
+        c = Brae(**candi)
+        c.save()
+    # print(cand_list)
+
+    context = {
+        'cand_list': cand_list
+        # 'pic': pic
+    }
+
+    return render(request, 'crawl_elect/brae.html', context)

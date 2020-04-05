@@ -13,6 +13,27 @@ from crawl_elect.models import Candidate, Precinct
 
 ngrok_url = "http://c3c9c90a.ngrok.io"
 
+quick_replies = [
+                {'label': '전체 조회',
+                 'action': 'message',
+                 'messageText': '전체 후보자 조회'},
+                {'label': '선거구별 조회',
+                 'action': 'message',
+                 'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
+                {'label': '주소로찾기',
+                 'action': 'block',
+                 'blockId': '5e889e80b1fdff0001d6758c'}
+
+                ]
+
+brae_quick_replies = [
+
+]
+
+
 
 # Create your views here.
 def index(request):
@@ -274,8 +295,6 @@ def juso(request):
         }
     }
 
-
-
     return JsonResponse(output)
 
 def search_juso(request, juso):
@@ -298,6 +317,73 @@ def search_juso(request, juso):
                 candidate.military = "-"
     else:
         candidates = []
+    context = {
+        'candidates': candidates
+    }
+
+    return render(request, 'kakao/filter.html', context)
+
+
+@csrf_exempt
+def jungdang(request):
+    answer = ((request.body).decode('utf-8'))
+    res = json.loads(answer)
+
+    jungdang = res.get('action').get('params').get('jungdang')
+
+
+    output = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "basicCard": {
+                    "title": f"{jungdang} 후보자별 정보",
+                    "description": "아래 버튼을 눌러주세요.",
+
+                    "buttons": [
+                        {
+                            "action": "webLink",
+                            "label": "후보자 확인",
+                            "webLinkUrl": f"{ngrok_url}/kakao/searchjungdang/{jungdang}"
+                        }
+                    ],
+                }
+                }
+
+            ],
+            'quickReplies': [
+                {'label': '전체 조회',
+                 'action': 'message',
+                 'messageText': '전체 후보자 조회'},
+                {'label': '선거구별 조회',
+                 'action': 'message',
+                 'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
+                {'label': '주소로찾기',
+                         'action': 'block',
+                'blockId': '5e889e80b1fdff0001d6758c'}
+            ]
+
+        }
+    }
+
+    return JsonResponse(output)
+
+def search_jungdang(request, jungdang):
+
+    candidates = Candidate.objects.filter(belong__contains=jungdang)
+
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
+
     context = {
         'candidates': candidates
     }
