@@ -44,7 +44,8 @@ table {
   width: 100%;
 }
 table td,
-table th {
+table th,
+ table td a{
   color: #2b686e;
 
 }
@@ -52,7 +53,16 @@ table td {
   text-align: center;
   vertical-align: middle;
   padding: 1rem;
+
 }
+table td a{
+  text-align: center;
+  vertical-align: middle;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
 
 table th {
   background-color: #daeff1;
@@ -61,12 +71,6 @@ table th {
 
 }
 
-.large {
-  background-color: #daeff1;
-  font-weight: 300;
-  text-align: center;
-  width: 6%;
-}
 
 table tr:nth-child(2n) {
   background-color: white;
@@ -236,26 +240,26 @@ table tr:nth-child(2n + 1) {
             <th><B>이름</B></th>
             <th><B>선거구</B></th>
             <th class="small"><B>기호</B></th>
-            <th class="large"><B>소속정당</B></th>
+            <th class="nomal"><B>소속정당</B></th>
             <th class="small"><B>성별</B></th>
             <th><B>생년월일<br>(연령)</B></th>
 
-            <th><B>주소</B></th>
-            <th><B>직업</B></th>
-            <th><B>학력</B></th>
-            <th><B>경력</B></th>
-            <th><B>재산</B></th>
+            <th class="large"><B>주소</B></th>
+            <th class="large"><B>직업</B></th>
+            <th class="large"><B>학력</B></th>
+            <th class="large"><B>경력</B></th>
+            <th><B>재산<br>(천원)</B></th>
             <th><B>병역</B></th>
-            <th><B>납부 세금</B></th>
-            <th><B>최근 5년<br> 체납 세금</B></th>
-            <th><B>현 체납액</B></th>
+<!--            <th><B>납부 세금<br>(천원)</B></th>-->
+<!--            <th><B>최근 5년<br> 체납 세금</B></th>-->
+<!--            <th><B>현 체납액</B></th>-->
             <th class="small"><B>전과<br> 횟수</B></th>
             <th class="small"><B>입후보 횟수</B></th>
         </tr>
         {% for candidate in candidates %}
         <tr>
             <td class="profile"><img src = {{candidate.pic}}></td> <!-- 사진 -->
-            <td>{{candidate.name}}</td> <!-- 이름 -->
+            <td><a href="" target="_blank">{{candidate.name}}</a></td> <!-- 이름 -->
             <td>{{candidate.ep}}</td>  <!-- 선거구 -->
             <td>{{candidate.num}}</td> <!-- 기호 -->
             <td>{{candidate.belong}}</td> <!-- 소속 정당 -->
@@ -268,9 +272,9 @@ table tr:nth-child(2n + 1) {
             <td>{{candidate.career}}</td> <!-- 경력 -->
             <td>{{candidate.wealth}}</td> <!-- 재산 -->
             <td>{{candidate.military}}</td> <!-- 병역 -->
-            <td>{{candidate.tax_total}}</td> <!-- 납부액 -->
-            <td>{{candidate.tax_5y}}</td> <!-- 최근 5년 체납액 -->
-            <td>{{candidate.tax_defalt}}</td> <!-- 현 체납액 -->
+<!--            <td>{#{candidate.tax_total}#}</td> &lt;!&ndash; 납부액 &ndash;&gt;-->
+<!--            <td>{#{candidate.tax_5y}#}</td> &lt;!&ndash; 최근 5년 체납액 &ndash;&gt;-->
+<!--            <td>{#{candidate.tax_defalt}#}</td> &lt;!&ndash; 현 체납액 &ndash;&gt;-->
             <td>{{candidate.crim_cnt}}</td> <!-- 전과 횟수 -->
             <td>{{candidate.candi_cnt}}</td> <!-- 입후보 횟수 -->
         </tr>
