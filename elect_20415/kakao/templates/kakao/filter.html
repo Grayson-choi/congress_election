@@ -144,21 +144,20 @@ table tr:nth-child(2n + 1) {
     content: "병역:";
   }
     td:nth-child(14):before {
-    content: "납부 세금:";
+    content: "전과 횟수:";
   }
 
     td:nth-child(15):before {
-    content: "5년간체납세금:";
+    content: "입후보 횟수:";
   }
     td:nth-child(16):before {
     content: "현 체납액:";
   }
 
-    td:nth-child(17):before {
-    content: "전과 횟수:";
-  }
-    td:nth-child(18):before {
-    content: "입후보 횟수:";  }
+<!--    td:nth-child(17):before {-->
+<!--  }-->
+<!--    td:nth-child(18):before {-->
+<!--      }-->
 
   tr {
     padding: 10px 0;
@@ -259,7 +258,7 @@ table tr:nth-child(2n + 1) {
         {% for candidate in candidates %}
         <tr>
             <td class="profile"><img src = {{candidate.pic}}></td> <!-- 사진 -->
-            <td><a href="" target="_blank">{{candidate.name}}</a></td> <!-- 이름 -->
+            <td>{{candidate.name}}</td> <!-- 이름 -->
             <td>{{candidate.ep}}</td>  <!-- 선거구 -->
             <td>{{candidate.num}}</td> <!-- 기호 -->
             <td>{{candidate.belong}}</td> <!-- 소속 정당 -->

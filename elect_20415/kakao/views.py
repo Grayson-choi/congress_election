@@ -9,9 +9,12 @@ from django.db import models
 
 from crawl_elect.models import Candidate, Precinct
 
+ngrok_url = "http://c3c9c90a.ngrok.io"
+
+
 # Create your views here.
 def index(request):
-    #전체 후보자 조
+    #전체 후보자 조회
     candidates = Candidate.objects.all()
 
     for candidate in candidates:
@@ -55,76 +58,30 @@ def sgg(request):
 
     return_str = return_json_str['action']['params']['sgg']
     print(return_json_str)
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': f"2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/filter/{return_str}"
+
+    output = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "basicCard": {
+                        "title": f"{return_str} 후보자 정보",
+                        "description": "아래 버튼을 눌러주세요.",
+                        # "thumbnail": {
+                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                        # },
+
+                        "buttons": [
+                            {
+                                "action": "webLink",
+                                "label": "후보자 확인",
+                                "webLinkUrl": f"{ngrok_url}/kakao/filter/{return_str}"
+                            }
+                        ],
+                    }
                 }
-            }],
-            'quickReplies': [
-                {'label': '전체 조회',
-                'action': 'message',
-                'messageText': '전체 후보자 조회'},
-                {'label': '선거구별 조회',
-                'action': 'message',
-                'messageText': '선거구별 조회'},
-                {'label': '이름으로 조회',
-                 'action': 'message',
-                 'messageText': '이름으로 조회'},
-                {'label': '주소로찾기',
-                 'action': 'block',
-                 'blockId': '5e889e80b1fdff0001d6758c'}
-            ]
-        }
-    })
 
-@csrf_exempt
-def message(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
-
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/"
-                }
-            }],
-            'quickReplies': [
-                {'label': '전체 조회',
-                'action': 'message',
-                'messageText': '전체 후보자 조회'},
-                {'label': '선거구별 조회',
-                'action': 'message',
-                'messageText': '선거구별 조회'},
-                {'label': '이름으로 조회',
-                 'action': 'message',
-                 'messageText': '이름으로 조회'},
-                {'label': '주소로찾기',
-                 'action': 'block',
-                 'blockId': '5e889e80b1fdff0001d6758c'}
-            ]
-        }
-    })
-
-@csrf_exempt
-def message(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
-
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': "2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/"
-                }
-            }],
+            ],
             'quickReplies': [
                 {'label': '전체 조회',
                  'action': 'message',
@@ -139,9 +96,61 @@ def message(request):
                  'action': 'block',
                  'blockId': '5e889e80b1fdff0001d6758c'}
             ]
-        }
-    })
 
+        }
+    }
+
+
+    return JsonResponse(output)
+
+@csrf_exempt
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    output = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "basicCard": {
+                        "title": f"전체 후보자 정보",
+                        "description": "아래 버튼을 눌러주세요.",
+                        # "thumbnail": {
+                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                        # },
+
+                        "buttons": [
+                            {
+                                "action": "webLink",
+                                "label": "후보자 확인",
+                                "webLinkUrl": f"{ngrok_url}/kakao/"
+                            }
+                        ],
+                    }
+                }
+
+            ],
+            'quickReplies': [
+                {'label': '전체 조회',
+                 'action': 'message',
+                 'messageText': '전체 후보자 조회'},
+                {'label': '선거구별 조회',
+                 'action': 'message',
+                 'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
+                {'label': '주소로찾기',
+                 'action': 'block',
+                 'blockId': '5e889e80b1fdff0001d6758c'}
+            ]
+
+        }
+    }
+
+    return JsonResponse(output)
 
 
 @csrf_exempt
@@ -168,7 +177,7 @@ def name(request):
                         {
                             "action": "webLink",
                             "label": "후보자 확인",
-                            "webLinkUrl": f"https://cff01795.ngrok.io/kakao/searchname/{name}"
+                            "webLinkUrl": f"{ngrok_url}/kakao/searchname/{name}"
                         }
                     ],
                 }
@@ -230,7 +239,7 @@ def juso(request):
                         {
                             "action": "webLink",
                             "label": "후보자 확인",
-                            "webLinkUrl": f"https://cff01795.ngrok.io/kakao/searchjuso/{juso}"
+                            "webLinkUrl": f"{ngrok_url}/kakao/searchjuso/{juso}"
                         }
                     ],
                 }

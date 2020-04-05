@@ -20,6 +20,8 @@ class Candidate(models.Model):
     tax_defalt = models.CharField(max_length=50) # 현 체납액
     crim_cnt = models.CharField(max_length=50) # 전과 횟수
     candi_cnt = models.CharField(max_length=50) # 입후보 횟수
+    detail_url = models.CharField(max_length=250) # 디테일 URL
+    gong_url = models.CharField(max_length=250) # 공약 URL
 
     def __str__(self):
         return self.name
@@ -28,7 +30,6 @@ class Precinct(models.Model):
     city = models.CharField(max_length=20) # 특별시, 광역시, 도
     sigun = models.CharField(max_length=20) # 시군구
     dong = models.CharField(max_length=20) # 행정동
-
     sgg = models.CharField(max_length=20) # 선거구
 
     def __str__(self):
