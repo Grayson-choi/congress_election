@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>2020 국회의원 선</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+    body {
+  background-color: #91ced4;
+}
+body * {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #327a81;
+  color: white;
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
+.table-users {
+  border: 1px solid #327a81;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  overflow: hidden;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+table td,
+table th {
+  color: #2b686e;
+
+}
+table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 1rem;
+}
+
+table th {
+  background-color: #daeff1;
+  font-weight: 300;
+  text-align: center;
+
+}
+
+.large {
+  background-color: #daeff1;
+  font-weight: 300;
+  text-align: center;
+  width: 6%;
+}
+
+table tr:nth-child(2n) {
+  background-color: white;
+}
+table tr:nth-child(2n + 1) {
+  background-color: #edf7f8;
+}
+
+@media screen and (max-width: 700px) {
+  table,
+  tr,
+  td {
+    display: block;
+  }
+
+  td:first-child {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100px;
+  }
+  td:not(:first-child) {
+    clear: both;
+    margin-left: 100px;
+    padding: 4px 20px 4px 90px;
+    position: relative;
+    text-align: left;
+  }
+  td:not(:first-child):before {
+    color: #91ced4;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+  }
+  td:nth-child(2):before {
+    content: "이름:";
+  }
+  td:nth-child(3):before {
+    content: "선거구:";
+  }
+  td:nth-child(4):before {
+    content: "기호:";
+  }
+  td:nth-child(5):before {
+    content: "소속정당:";
+  }
+  td:nth-child(6):before {
+    content: "성별:";
+  }
+    td:nth-child(7):before {
+    content: "생년월일(연령):";
+  }
+    td:nth-child(8):before {
+    content: "주소:";
+  }
+    td:nth-child(9):before {
+    content: "직업:";
+  }
+    td:nth-child(10):before {
+    content: "학력:";
+  }
+    td:nth-child(11):before {
+    content: "경력:";
+  }
+    td:nth-child(12):before {
+    content: "재산:";
+  }
+    td:nth-child(13):before {
+    content: "병역:";
+  }
+    td:nth-child(14):before {
+    content: "납부 세금:";
+  }
+
+    td:nth-child(15):before {
+    content: "5년간체납세금:";
+  }
+    td:nth-child(16):before {
+    content: "현 체납액:";
+  }
+
+    td:nth-child(17):before {
+    content: "전과 횟수:";
+  }
+    td:nth-child(18):before {
+    content: "입후보 횟수:";  }
+
+  tr {
+    padding: 10px 0;
+    position: relative;
+  }
+  tr:first-child {
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header {
+    background-color: transparent;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    padding: 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    border: 3px solid;
+    border-color: #daeff1;
+    height: 100px;
+    margin: 0.5rem 0;
+    width: 100px;
+  }
+
+  td:first-child {
+    background-color: #c8e7ea;
+    border-bottom: 1px solid #91ced4;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    top: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    width: 100%;
+  }
+  td:not(:first-child) {
+    margin: 0;
+    padding: 5px 1em;
+    width: 100%;
+  }
+  td:not(:first-child):before {
+    font-size: 0.8em;
+    padding-top: 0.3em;
+    position: relative;
+  }
+  td:last-child {
+    padding-bottom: 1rem !important;
+  }
+
+  tr {
+    background-color: white !important;
+    border: 1px solid #6cbec6;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .table-users {
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+}
+
+  </style>
+</head>
+
+<body>
+<div class="table-users">
+    <div class="header">2020 국회의원 선거 후보자 명단</div>
+
+    <table cellspacing="0">
+        <tr>
+            <th><B>사진</B></th>
+            <th><B>이름</B></th>
+            <th><B>선거구</B></th>
+            <th class="small"><B>기호</B></th>
+            <th class="large"><B>소속정당</B></th>
+            <th class="small"><B>성별</B></th>
+            <th><B>생년월일<br>(연령)</B></th>
+
+            <th><B>주소</B></th>
+            <th><B>직업</B></th>
+            <th><B>학력</B></th>
+            <th><B>경력</B></th>
+            <th><B>재산</B></th>
+            <th><B>병역</B></th>
+            <th><B>납부 세금</B></th>
+            <th><B>최근 5년<br> 체납 세금</B></th>
+            <th><B>현 체납액</B></th>
+            <th class="small"><B>전과<br> 횟수</B></th>
+            <th class="small"><B>입후보 횟수</B></th>
+        </tr>
+        {% for candidate in candidates %}
+        <tr>
+            <td class="profile"><img src = {{candidate.pic}}></td> <!-- 사진 -->
+            <td>{{candidate.name}}</td> <!-- 이름 -->
+            <td>{{candidate.ep}}</td>  <!-- 선거구 -->
+            <td>{{candidate.num}}</td> <!-- 기호 -->
+            <td>{{candidate.belong}}</td> <!-- 소속 정당 -->
+
+            <td>{{candidate.gender}}</td> <!-- 성별 -->
+            <td>{{candidate.birth}}</td> <!-- 생년월일 -->
+            <td>{{candidate.address}}</td> <!-- 주소 -->
+            <td>{{candidate.job}}</td> <!-- 직업 -->
+            <td>{{candidate.level}}</td> <!-- 학력 -->
+            <td>{{candidate.career}}</td> <!-- 경력 -->
+            <td>{{candidate.wealth}}</td> <!-- 재산 -->
+            <td>{{candidate.military}}</td> <!-- 병역 -->
+            <td>{{candidate.tax_total}}</td> <!-- 납부액 -->
+            <td>{{candidate.tax_5y}}</td> <!-- 최근 5년 체납액 -->
+            <td>{{candidate.tax_defalt}}</td> <!-- 현 체납액 -->
+            <td>{{candidate.crim_cnt}}</td> <!-- 전과 횟수 -->
+            <td>{{candidate.candi_cnt}}</td> <!-- 입후보 횟수 -->
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+</body>
+
+

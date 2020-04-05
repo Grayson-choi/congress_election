@@ -6,8 +6,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
 from django.db import models
-from crawl_elect.models import Candidate, Precinct
 
+from crawl_elect.models import Candidate, Precinct
 
 
 
@@ -32,9 +32,21 @@ def index(request):
 
     return render(request, 'kakao/index.html', context)
 
+def search_sgg(request, dong):
+    all_sgg = Precinct.objects.all()
+
+    sggs = Precinct.objects.filter(dong=dong)
+
+    sgg_list = []
+
+    context = {
+        'sggs': all_sgg
+    }
+    return render(request, 'kakao/search_sgg.html', context)
+
 
 def filter_candidates(request, sgg):
-
+    #선거구 별 후보 조회
     candidates = Candidate.objects.filter(ep=sgg).order_by('num')
 
     for candidate in candidates:
@@ -45,14 +57,66 @@ def filter_candidates(request, sgg):
         else:
             candidate.military = "-"
 
+    context = {
+        'candidates': candidates
+    }
 
+    return render(request, 'kakao/filter.html', context)
+
+
+def name_candidates(request, name):
+    # 이름으로 후보자 조회
+    candidates = Candidate.objects.filter(name__contains=name)
+
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
 
     context = {
         'candidates': candidates
     }
 
+    return render(request, 'kakao/name.html', context)
 
-    return render(request, 'kakao/filter.html', context)
+@csrf_exempt
+def filter_name(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+
+    return_str = return_json_str['action']['params']['sgg']
+    print(return_json_str)
+    # print(return_str)
+    # print(return_json_str['action']['params']['sgg'])
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': f"2020 국회의원 선거 후보자 정보입니다.\nhttps://cff01795.ngrok.io/kakao/name/{return_str}"
+                }
+            }],
+            'quickReplies': [
+                {'label': '전체 조회',
+                'action': 'message',
+                'messageText': '전체 후보자 조회'},
+                {'label': '선거구별 조회',
+                'action': 'message',
+                'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
+            ]
+        }
+    })
+
+
+
+
+
 
 @csrf_exempt
 def send_url(request):
@@ -77,11 +141,15 @@ def send_url(request):
                 'messageText': '전체 후보자 조회'},
                 {'label': '선거구별 조회',
                 'action': 'message',
-                'messageText': '선거구별 조회'
-                }
+                'messageText': '선거구별 조회'},
+                {'label': '이름으로 조회',
+                 'action': 'message',
+                 'messageText': '이름으로 조회'},
             ]
         }
     })
+
+
 
 
 
