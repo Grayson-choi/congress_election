@@ -13,6 +13,10 @@
 }
 body * {
   box-sizing: border-box;
+
+}
+a{
+    text-decoration: none;
 }
 
 .header {
@@ -58,7 +62,6 @@ table td {
 table td a{
   text-align: center;
   vertical-align: middle;
-  padding: 1rem;
   font-size: 1.5rem;
   text-decoration: underline;
 }
@@ -151,7 +154,7 @@ table tr:nth-child(2n + 1) {
     content: "입후보 횟수:";
   }
     td:nth-child(16):before {
-    content: "현 체납액:";
+    content: "후보 공약";
   }
 
 <!--    td:nth-child(17):before {-->
@@ -225,6 +228,112 @@ table tr:nth-child(2n + 1) {
   }
 
 }
+.color-bg-start {
+  background-color: #91ced4;
+}
+
+
+/* toggle class bg-animate-color */
+
+.bg-animate-color {
+  animation: random-bg .5s linear infinite;
+}
+
+
+/* add animation to bg color  */
+
+@keyframes random-bg {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.fun-btn {
+  /* change bg color to get different hues    */
+  background-color: #91ced4;
+  color: white;
+  padding: 1em 1.5em;
+  border: none;
+  transition: all .3s ease;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: none;
+  align-self: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.fun-btn:hover {
+  animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
+}
+
+.start-fun {
+  background-color: #fff !important;
+  /* change color of button text when fun is started   */
+  color: salmon !important;
+}
+
+/* pulsating effect on button */
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+
+<!--button{-->
+<!--  background:#1AAB8A;-->
+<!--  color:#fff;-->
+<!--  border:none;-->
+<!--  position:relative;-->
+<!--  height:60px;-->
+<!--  font-size:1.6em;-->
+<!--  padding:0 2em;-->
+<!--  cursor:pointer;-->
+<!--  transition:800ms ease all;-->
+<!--  outline:none;-->
+<!--}-->
+<!--button:hover{-->
+<!--  background:#fff;-->
+<!--  color:#1AAB8A;-->
+<!--}-->
+<!--button:before,button:after{-->
+<!--  content:'';-->
+<!--  position:absolute;-->
+<!--  top:0;-->
+<!--  right:0;-->
+<!--  height:2px;-->
+<!--  width:0;-->
+<!--  background: #1AAB8A;-->
+<!--  transition:400ms ease all;-->
+<!--}-->
+<!--button:after{-->
+<!--  right:inherit;-->
+<!--  top:inherit;-->
+<!--  left:0;-->
+<!--  bottom:0;-->
+<!--}-->
+<!--button:hover:before,button:hover:after{-->
+<!--  width:100%;-->
+<!--  transition:800ms ease all;-->
+<!--}-->
+
 
   </style>
 </head>
@@ -254,11 +363,12 @@ table tr:nth-child(2n + 1) {
 <!--            <th><B>현 체납액</B></th>-->
             <th class="small"><B>전과<br> 횟수</B></th>
             <th class="small"><B>입후보 횟수</B></th>
+            <th><B>공 보기</B></th>
         </tr>
         {% for candidate in candidates %}
         <tr>
             <td class="profile"><img src = {{candidate.pic}}></td> <!-- 사진 -->
-            <td>{{candidate.name}}</td> <!-- 이름 -->
+            <td><a href={{candidate.detail_url}} target="_blank">{{candidate.name}}</a></td> <!-- 이름 -->
             <td>{{candidate.ep}}</td>  <!-- 선거구 -->
             <td>{{candidate.num}}</td> <!-- 기호 -->
             <td>{{candidate.belong}}</td> <!-- 소속 정당 -->
@@ -276,6 +386,7 @@ table tr:nth-child(2n + 1) {
 <!--            <td>{#{candidate.tax_defalt}#}</td> &lt;!&ndash; 현 체납액 &ndash;&gt;-->
             <td>{{candidate.crim_cnt}}</td> <!-- 전과 횟수 -->
             <td>{{candidate.candi_cnt}}</td> <!-- 입후보 횟수 -->
+            <td><button class="fun-btn" onclick="window.open('{{candidate.gong_url}}')">공약보기</button></td>
         </tr>
         {% empty %}
         <tr>

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.http import HttpResponse
 import json
+from selenium import webdriver
+import time
 
 from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
@@ -206,6 +208,14 @@ def name(request):
 def search_name(request, name):
     candidates = Candidate.objects.filter(name__contains=name)
 
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
+
     context = {
         'candidates': candidates
     }
@@ -275,8 +285,17 @@ def search_juso(request, juso):
     data = Precinct.objects.filter(sigun__contains=sigun[:2], dong__contains=dong[:2]).first()
     # print(data)
 
+
+
     if data:
         candidates = Candidate.objects.filter(ep=data.sgg)
+        for candidate in candidates:
+            if "아니한" in candidate.military:
+                candidate.military = "X"
+            elif "마친사람" in candidate.military:
+                candidate.military = "O"
+            else:
+                candidate.military = "-"
     else:
         candidates = []
     context = {
@@ -284,3 +303,12 @@ def search_juso(request, juso):
     }
 
     return render(request, 'kakao/filter.html', context)
+
+
+# def show_gong(request, gong):
+#     browser = webdriver.Chrome("./chromedriver")
+#     browser.get(f"{gong}")
+#     time.sleep(1)
+#     browser.find_element_by_css_selector(".fl-r a").click()
+#
+#     return render(request, 'kakao/gong')
