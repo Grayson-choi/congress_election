@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.http import HttpResponse
@@ -39,7 +40,7 @@ brae_quick_replies = [
     {'label': '비례대표 이름',
      'action': 'message',
      'messageText': '비례대표_이름 조회'},
-    {'label': '비례대표 정보',
+    {'label': '비례대표 정당',
      'action': 'message',
      'messageText': '비례대표_정당으로_조회'}
 
@@ -153,6 +154,7 @@ def brae_jungdang(request):
     res = json.loads(answer)
     print(res)
     jungdang = res.get('action').get('params').get('brae_jungdang')
+    print(jungdang)
     candidates = Brae.objects.filter(belong__contains=jungdang)
     if candidates:
         output = {
@@ -168,7 +170,7 @@ def brae_jungdang(request):
                                 {
                                     "action": "webLink",
                                     "label": "후보자 확인",
-                                    "webLinkUrl": f"{ngrok_url}/kakao/searchjungdang/{jungdang}"
+                                    "webLinkUrl": f"{ngrok_url}/kakao/brae_searchjungdang/{jungdang}/"
                                 }
                             ],
                         }
@@ -226,19 +228,17 @@ def brae_name(request):
     res = json.loads(answer)
 
 
-    pprint(res)
+    # pprint(res)
     name = res.get('action').get('params').get('brae_HuboName')
+    print(name)
 
-    candidates = Brae.objects.filter(name__contains=name)
-
-    if candidates:
-        output = {
+    output = {
             "version": "2.0",
             "template": {
                 "outputs": [
                     {
                         "basicCard": {
-                            "title": f"{name} 후보자 정보",
+                            "title": f"비례대표 {name} 후보자 정보",
                             "description": "아래 버튼을 눌러주세요.",
                             # "thumbnail": {
                             #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
@@ -257,32 +257,62 @@ def brae_name(request):
                 'quickReplies': brae_quick_replies
             }
         }
-    else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{name} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
 
-                        }
-                    }
-                ],
-                'quickReplies': brae_quick_replies
-            }
-        }
+
+    # candidates = Brae.objects.filter(name__contains=name)
+    #
+    # if candidates:
+    #     output = {
+    #         "version": "2.0",
+    #         "template": {
+    #             "outputs": [
+    #                 {
+    #                     "basicCard": {
+    #                         "title": f"비례대표 {name} 후보자 정보",
+    #                         "description": "아래 버튼을 눌러주세요.",
+    #                         # "thumbnail": {
+    #                         #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+    #                         # },
+    #
+    #                         "buttons": [
+    #                             {
+    #                                 "action": "webLink",
+    #                                 "label": "후보자 확인",
+    #                                 "webLinkUrl": f"{ngrok_url}/kakao/brae_searchname/{name}"
+    #                             }
+    #                         ],
+    #                     }
+    #                 }
+    #             ],
+    #             'quickReplies': brae_quick_replies
+    #         }
+    #     }
+    # else:
+    #     output = {
+    #         "version": "2.0",
+    #         "template": {
+    #             "outputs": [
+    #                 {
+    #                     "basicCard": {
+    #                         "title": f"{name} 후보자 정보",
+    #                         "description": "찾으시는 후보자 정보가 없습니다.",
+    #                         # "thumbnail": {
+    #                         #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+    #                         # },
+    #
+    #                     }
+    #                 }
+    #             ],
+    #             'quickReplies': brae_quick_replies
+    #         }
+    #     }
 
     return JsonResponse(output)
 
 
-def brae_search_name(request, name):
-    candidates = Brae.objects.filter(name__contains=name)
-
+def brae_search_name(request, hubo):
+    # candidates = Brae.objects.filter(name__contains=hubo)
+    candidates = Brae.objects.filter(name__contains=hubo)
     for candidate in candidates:
         if "아니한" in candidate.military:
             candidate.military = "X"
@@ -334,21 +364,7 @@ def all(request):
                 }
 
             ],
-            'quickReplies': [
-                {'label': '전체 조회',
-                 'action': 'message',
-                 'messageText': '전체 후보자 조회'},
-                {'label': '선거구별 조회',
-                 'action': 'message',
-                 'messageText': '선거구별 조회'},
-                {'label': '이름으로 조회',
-                 'action': 'message',
-                 'messageText': '이름으로 조회'},
-                {'label': '주소로찾기',
-                 'action': 'block',
-                 'blockId': '5e889e80b1fdff0001d6758c'}
-            ]
-
+            'quickReplies': quick_replies
         }
     }
 

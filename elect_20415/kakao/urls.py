@@ -27,7 +27,7 @@ urlpatterns = [
     path('brae_searchname/<str:name>/', views.search_name, name="search_name"),
     # path('juso/', views.juso, name='juso'),
     # path('searchjuso/<str:juso>/', views.search_juso, name="search_juso"),
-    path('brae_jungdang/', views.brae_jungdang, name='jungdang'),
-    path('brae_searchjungdang/<str:jungdang>/', views.brae_search_jungdang, name="search_jungdang")
+    path('brae_jungdang/', views.brae_jungdang, name='brae_jungdang'),
+    path('brae_searchjungdang/<str:jungdang>/', views.brae_search_jungdang, name="brae_search_jungdang")
 
 ]
