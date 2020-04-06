@@ -227,12 +227,13 @@ def brae_name(request):
     answer = ((request.body).decode('utf-8'))
     res = json.loads(answer)
 
-
-    # pprint(res)
+    # print(res)
     name = res.get('action').get('params').get('brae_HuboName')
     print(name)
+    candidates = Brae.objects.filter(name__contains=name)
 
-    output = {
+    if candidates:
+        output = {
             "version": "2.0",
             "template": {
                 "outputs": [
@@ -257,62 +258,32 @@ def brae_name(request):
                 'quickReplies': brae_quick_replies
             }
         }
+    else:
+        output = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "basicCard": {
+                            "title": f"{name} 후보자 정보",
+                            "description": "찾으시는 후보자 정보가 없습니다.",
+                            # "thumbnail": {
+                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                            # },
 
-
-    # candidates = Brae.objects.filter(name__contains=name)
-    #
-    # if candidates:
-    #     output = {
-    #         "version": "2.0",
-    #         "template": {
-    #             "outputs": [
-    #                 {
-    #                     "basicCard": {
-    #                         "title": f"비례대표 {name} 후보자 정보",
-    #                         "description": "아래 버튼을 눌러주세요.",
-    #                         # "thumbnail": {
-    #                         #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-    #                         # },
-    #
-    #                         "buttons": [
-    #                             {
-    #                                 "action": "webLink",
-    #                                 "label": "후보자 확인",
-    #                                 "webLinkUrl": f"{ngrok_url}/kakao/brae_searchname/{name}"
-    #                             }
-    #                         ],
-    #                     }
-    #                 }
-    #             ],
-    #             'quickReplies': brae_quick_replies
-    #         }
-    #     }
-    # else:
-    #     output = {
-    #         "version": "2.0",
-    #         "template": {
-    #             "outputs": [
-    #                 {
-    #                     "basicCard": {
-    #                         "title": f"{name} 후보자 정보",
-    #                         "description": "찾으시는 후보자 정보가 없습니다.",
-    #                         # "thumbnail": {
-    #                         #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-    #                         # },
-    #
-    #                     }
-    #                 }
-    #             ],
-    #             'quickReplies': brae_quick_replies
-    #         }
-    #     }
+                        }
+                    }
+                ],
+                'quickReplies': brae_quick_replies
+            }
+        }
 
     return JsonResponse(output)
 
 
-def brae_search_name(request, hubo):
-    # candidates = Brae.objects.filter(name__contains=hubo)
-    candidates = Brae.objects.filter(name__contains=hubo)
+def brae_search_name(request, name):
+    candidates = Brae.objects.filter(name__contains=name)
+
     for candidate in candidates:
         if "아니한" in candidate.military:
             candidate.military = "X"
@@ -326,6 +297,7 @@ def brae_search_name(request, hubo):
     }
 
     return render(request, 'kakao/brae_filter.html', context)
+
 
 
 
