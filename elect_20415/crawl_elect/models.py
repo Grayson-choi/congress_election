@@ -40,7 +40,7 @@ class Brae(models.Model):
     ep = models.CharField(max_length=20) # 선거구
     pic = models.CharField(max_length=200) # 사진
     belong = models.CharField(max_length=30) # 소속 정당
-    suggest_num = models.IntegerField()  # 추천 번호
+    suggest_num = models.IntegerField()  # 추천 번
     name = models.CharField(max_length=30) # 이름
     gender = models.CharField(max_length=10) # 성별
     birth = models.CharField(max_length=30) # 생년월일 (연령)
@@ -57,6 +57,17 @@ class Brae(models.Model):
     candi_cnt = models.CharField(max_length=50) # 입후보 횟수
     detail_url = models.CharField(max_length=250) # 디테일 URL
     gong_url = models.CharField(max_length=250) # 공약 URL
+
+    def __str__(self):
+        return self.name
+
+
+class Jd(models.Model):
+    name = models.CharField(max_length=30) # 정당이름
+    reg_date = models.CharField(max_length=15) # 설립일
+    boss = models.CharField(max_length=50) # 대표
+    locate = models.CharField(max_length=100) # 위치
+    phone_num = models.CharField(max_length=20) # 전화번호
 
     def __str__(self):
         return self.name

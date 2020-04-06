@@ -28,6 +28,9 @@ urlpatterns = [
     # path('juso/', views.juso, name='juso'),
     # path('searchjuso/<str:juso>/', views.search_juso, name="search_juso"),
     path('brae_jungdang/', views.brae_jungdang, name='brae_jungdang'),
-    path('brae_searchjungdang/<str:jungdang>/', views.brae_search_jungdang, name="brae_search_jungdang")
+    path('brae_searchjungdang/<str:jungdang>/', views.brae_search_jungdang, name="brae_search_jungdang"),
 
+    # 정당
+    path('show_jd/', views.show_jd),
+    path('jd/searchall/', views.jd_searchall)
 ]

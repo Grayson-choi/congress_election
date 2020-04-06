@@ -10,21 +10,21 @@ from django.views.decorators.csrf import csrf_exempt
 from pprint import pprint
 from django.db import models
 
-from crawl_elect.models import Candidate, Precinct, Brae
+from crawl_elect.models import Candidate, Precinct, Brae, Jd
 
 ngrok_url = "http://c3c9c90a.ngrok.io"
 
 quick_replies = [
-                {'label': '전체 조회',
+                {'label': '국회의원 조회',
                  'action': 'message',
                  'messageText': '전체 후보자 조회'},
-                {'label': '선거구별 조회',
+                {'label': '선거구별 후보',
                  'action': 'message',
                  'messageText': '선거구별 조회'},
-                {'label': '이름으로 조회',
+                {'label': '후보 이름 검색',
                  'action': 'message',
                  'messageText': '이름으로 조회'},
-                {'label': '주소로찾기',
+                {'label': '내주소로 후보 찾기',
                  'action': 'block',
                  'blockId': '5e889e80b1fdff0001d6758c'},
                 {'label': '정당으로 조회',
@@ -45,6 +45,18 @@ brae_quick_replies = [
      'messageText': '비례대표_정당으로_조회'}
 
 ]
+
+jd_quick_replies = [
+    {'label': '국회의원 검색',
+      'action': 'message',
+      'messageText': '전체 후보자 조회'},
+
+    {'label': '비례대표 검색',
+     'action': 'message',
+     'messageText': '비례 대표 전체 조회'}
+]
+
+
 #
 # @csrf_exempt
 # def index(request):
@@ -71,8 +83,8 @@ brae_quick_replies = [
 #     return JsonResponse(output)
 
 @csrf_exempt
-def brae_index(request):
-    answer = (request.body).decode('utf-8')
+def show_jd(request):
+    answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     print(return_json_str)
     output = {
@@ -81,18 +93,69 @@ def brae_index(request):
             "outputs": [
                 {
                     "basicCard": {
-                        "title": f"비례대표 후보자를 검색하시려면",
+                        "title": f"정당를 정보 확인하시려면",
                         "description": "아래 버튼을 눌러주세요.",
+                        # "thumbnail": {
+                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                        # },
+
+                        "buttons": [
+                            {
+                                "action": "webLink",
+                                "label": "정당 확인",
+                                "webLinkUrl": f"{ngrok_url}/kakao/jd/searchall"
+                            }
+                        ],
                     }
                 }
 
             ],
-            'quickReplies': brae_quick_replies
+            'quickReplies': jd_quick_replies
 
         }
     }
 
     return JsonResponse(output)
+
+
+def jd_searchall(request):
+    jds = Jd.objects.all()
+
+    context = {
+        'jds': jds
+    }
+
+    return render(request, 'kakao/show_jd.html', context)
+
+
+
+
+#
+# @csrf_exempt
+# def brae_index(request):
+#     answer = (request.body).decode('utf-8')
+#     return_json_str = json.loads(answer)
+#     print(return_json_str)
+#     output = {
+#         "version": "2.0",
+#         "template": {
+#             "outputs": [
+#                 {
+#                     "basicCard": {
+#                         "title": f"비례대표 후보자를 검색하시려면",
+#                         "description": "아래 버튼을 눌러주세요.",
+#                     }
+#                 }
+#
+#             ],
+#             'quickReplies': brae_quick_replies
+#
+#         }
+#     }
+#
+#     return JsonResponse(output)
+
+
 
 
 @csrf_exempt
