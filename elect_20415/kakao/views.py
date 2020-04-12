@@ -12,7 +12,7 @@ from django.db import models
 
 from crawl_elect.models import Candidate, Precinct, Brae, Jd
 
-ngrok_url = "http://ec2-3-133-86-208.us-east-2.compute.amazonaws.com:8080/"
+ngrok_url = "http://ec2-3-133-86-208.us-east-2.compute.amazonaws.com:8080"
 
 quick_replies = [
                 {'label': '국회의원 조회',
