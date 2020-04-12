@@ -217,7 +217,7 @@ def brae_jungdang(request):
     res = json.loads(answer)
     print(res)
     jungdang = res.get('action').get('params').get('brae_jungdang')
-    print(jungdang)
+    # print(jungdang)
     candidates = Brae.objects.filter(belong__contains=jungdang)
     if candidates:
         output = {
@@ -289,7 +289,7 @@ def brae_search_jungdang(request, jungdang):
 def brae_name(request):
     answer = ((request.body).decode('utf-8'))
     res = json.loads(answer)
-
+    print(res)
     # print(res)
     name = res.get('action').get('params').get('brae_HuboName')
     print(name)
@@ -375,7 +375,7 @@ def all(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-
+    print(return_json_str)
     output = {
         "version": "2.0",
         "template": {
@@ -586,6 +586,8 @@ def juso(request):
     # pprint(res)
     sigun = res.get('action').get('params').get('sigun')
     dong = res.get('action').get('params').get('dong')
+    # print(sigun)
+    # print(dong)
 
     juso = f'{sigun}_{dong}'
     sigun, dong = juso.split('_')
@@ -641,39 +643,21 @@ def juso(request):
 def search_juso(request, juso):
     sigun, dong = juso.split('_')
 
-    # print(sigun[:2], dong[:2])
-    data = Precinct.objects.filter(sigun__contains=sigun[:2], dong__contains=dong[:2]).first()
-    # print(data)
+    print(sigun[:2], dong)
+    data = Precinct.objects.filter(sigun__contains=sigun[:2], dong__contains=dong).first()
 
-    if data:
-        candidates = Candidate.objects.filter(ep=data.sgg)
-        for candidate in candidates:
-            if "아니한" in candidate.military:
-                candidate.military = "X"
-            elif "마친사람" in candidate.military:
-                candidate.military = "O"
-            else:
-                candidate.military = "-"
-    else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{sigun}_{dong} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
+    print(data)
 
-                        }
-                    }
-                ],
-                'quickReplies': quick_replies
-            }
-        }
-        return JsonResponse(output)
+
+
+    candidates = Candidate.objects.filter(ep=data.sgg)
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
     context = {
         'candidates': candidates
     }
