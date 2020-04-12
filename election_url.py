@@ -6,6 +6,7 @@ import urllib.parse as par
 import os
 from selenium.webdriver.support.ui import Select
 
+
 def crawl():
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
@@ -28,6 +29,8 @@ def crawl():
     city_list = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
     all_candidate_list = []
     all_candidate_image_list = []
+    all_candidate_deatil_urllist = []
+    all_candidate_gong_urllist = []
 
     for city in city_list:
         print("도시: "+city)
@@ -64,6 +67,17 @@ def crawl():
             # print(candidate_list, candidate_image_list)
             all_candidate_image_list += candidate_image_list
 
+            #image_url 에서 url 검색
+
+            for image_url in candidate_image_list:
+                index = image_url.find("Hb")
+                huboid = image_url[index + 2: index + 11]
+
+                detail_url = f"http://info.nec.go.kr/electioninfo/candidate_detail_info.xhtml?electionId=0020200415&huboId={huboid}"
+                gong_url = f"http://policy.nec.go.kr/plc/popup/initUMAPopup.do?sgId=20200415&subSgId=220200415&huboid={huboid}#none"
+                all_candidate_deatil_urllist.append(detail_url)
+                all_candidate_gong_urllist.append(gong_url)
+
 
         browser.get("http://info.nec.go.kr/main/showDocument.xhtml?electionId=0020200415&topMenuId=CP&secondMenuId=CPRI03")
         time.sleep(4)
@@ -71,15 +85,20 @@ def crawl():
         # 국회의원 선거 클릭
         browser.find_element_by_css_selector("#electionId2").click()
         time.sleep(2)
+
         print(all_candidate_list)
         print(all_candidate_image_list)
+        print(all_candidate_deatil_urllist)
+        print(all_candidate_gong_urllist)
 
-    return all_candidate_list, all_candidate_image_list
+    return all_candidate_list, all_candidate_image_list, all_candidate_deatil_urllist, all_candidate_gong_urllist
 
 # crawl()
 
 
 if __name__ == "__main__":
-    li, url = crawl()
+    li, img, detail_url, gong_url = crawl()
     print(li)
-    print(url)
+    print(img)
+    print(detail_url)
+    print(gong_url)

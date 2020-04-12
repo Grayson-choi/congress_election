@@ -20,12 +20,59 @@
       <change beforePath="$PROJECT_DIR$/../../datascience/data_for_datascience" beforeDir="false" afterPath="$PROJECT_DIR$/../../datascience/data_for_datascience" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 1 - Data Preprocessing/Section 2 -------------------- Part 1 - Data Preprocessing --------------------/categorical_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 1 - Data Preprocessing/Section 2 -------------------- Part 1 - Data Preprocessing --------------------/categorical_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 2 - Regression/Section 5 - Multiple Linear Regression/Multiple_Linear_Regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../machineLearning/Machine Learning A-Z Data/Part 2 - Regression/Section 5 - Multiple Linear Regression/Multiple_Linear_Regression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/name.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elect_20415/kakao/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/kakao/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six-1.14.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six-1.14.0.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six-1.14.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six-1.14.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six-1.14.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six-1.14.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/six.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3-1.25.8.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3-1.25.8.dist-info/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3-1.25.8.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3-1.25.8.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3-1.25.8.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3-1.25.8.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/_collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/_collections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/connectionpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/connectionpool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/_appengine_environ.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/_appengine_environ.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/appengine.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/appengine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/ntlmpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/ntlmpool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/pyopenssl.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/securetransport.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/securetransport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/socks.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/contrib/socks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/filepost.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/filepost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/backports/makefile.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/backports/makefile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/six.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/six.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/ssl_match_hostname/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/ssl_match_hostname/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/ssl_match_hostname/_implementation.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/packages/ssl_match_hostname/_implementation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/poolmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/poolmanager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/retry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/ssl_.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/ssl_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/timeout.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/timeout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/wait.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic/lib/python3.8/site-packages/urllib3/util/wait.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brae_election_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/brae_election_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/change_won.py" beforeDir="false" afterPath="$PROJECT_DIR$/change_won.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/change_won2.py" beforeDir="false" afterPath="$PROJECT_DIR$/change_won2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elect_20415/kakao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elect_20415/kakao/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/election_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/election_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,144 +81,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.9">
+    <splitter split-orientation="horizontal" split-proportion="0.6082741">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.5">
-          <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/test.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="160">
-                      <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/elect_20415/kakao/views.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="585">
-                      <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-                      <folding>
-                        <element signature="e#0#35#0" expanded="true" />
-                        <element signature="e#10566#11264#0" />
-                        <element signature="e#11900#12552#0" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/election_to_excel.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1564">
-                      <caret line="57" selection-start-line="57" selection-end-line="57" />
-                      <folding>
-                        <element signature="e#0#30#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1488">
-                      <caret line="55" column="2" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/search_sgg.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="224">
-                      <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/admin.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="192">
-                      <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-                      <folding>
-                        <element signature="e#0#32#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/urls.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="256">
-                      <caret line="8" selection-start-line="8" selection-end-line="8" />
-                      <folding>
-                        <element signature="e#0#28#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/elect_20415/config/urls.py">
-                  <provider selected="true" editor-type-id="text-editor" />
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="404">
-                      <caret line="246" column="28" selection-start-line="246" selection-start-column="28" selection-end-line="246" selection-end-column="28" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/election_test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4256">
-                  <caret line="133" selection-start-line="133" selection-end-line="133" />
-                  <folding>
-                    <element signature="e#0#30#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/craw_sgg.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2743">
-                  <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#0#30#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/elect_20415/kakao/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1920">
-                  <caret line="145" selection-start-line="145" selection-end-line="145" />
+                <state relative-caret-position="480">
+                  <caret line="15" selection-start-line="15" selection-end-line="15" />
                   <folding>
-                    <element signature="e#0#35#0" expanded="true" />
+                    <element signature="e#1#36#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/change_won.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2944">
+                  <caret line="92" column="62" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/change_won2.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="320">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
                 </state>
               </provider>
             </entry>
@@ -184,8 +122,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="331">
-                  <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+                <state relative-caret-position="1194">
+                  <caret line="78" column="28" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -194,10 +132,106 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/elect_20415/kakao/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="21" selection-end-line="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3969">
+                  <caret line="191" selection-start-line="191" selection-end-line="200" selection-end-column="3" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/elect_20415/kakao/admin.py">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/admin.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="320">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
+                  <folding>
+                    <element signature="e#0#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/brae_election_url.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1114">
+                  <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="28" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#0#30#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="160">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="224">
+                  <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/election_test.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3234">
+                  <caret line="109" column="14" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#30#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/craw_sgg.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-30">
+                  <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
+                  <folding>
+                    <element signature="e#0#30#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/elect_20415/kakao/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="352">
-                  <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="28" />
+                <state relative-caret-position="626">
+                  <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -208,8 +242,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="832">
-                  <caret line="26" column="14" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="14" />
+                <state relative-caret-position="614">
+                  <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
                 </state>
               </provider>
             </entry>
@@ -221,8 +255,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -242,6 +276,19 @@
       <find>.</find>
       <find>a</find>
       <find>.small</find>
+      <find>sim</find>
+      <find>all</find>
+      <find>정으로</find>
+      <find>brae</find>
+      <find>name</find>
+      <find>webL</find>
+      <find>brea</find>
+      <find>(name</find>
+      <find>b_</find>
+      <find>jd</find>
+      <find>td:f</find>
+      <find>sgg</find>
+      <find>juso</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -255,31 +302,36 @@
         <option value="$PROJECT_DIR$/elect_20415/crawl_elect/templates/crawl_elect/add_sgg.html" />
         <option value="$PROJECT_DIR$/election_test.py" />
         <option value="$PROJECT_DIR$/naver_search_api.py" />
-        <option value="$PROJECT_DIR$/elect_20415/config/settings.py" />
         <option value="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/index.html" />
         <option value="$PROJECT_DIR$/delete_duplicates_db.py" />
         <option value="$PROJECT_DIR$/elect_20415/delete_duplicates_db.py" />
         <option value="$PROJECT_DIR$/elect_20415/crawl_elect/templates/crawl_elect/delete_sgg.html" />
-        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/urls.py" />
-        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/views.py" />
-        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/admin.py" />
-        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/models.py" />
         <option value="$PROJECT_DIR$/craw_sgg_to_excel.py" />
         <option value="$PROJECT_DIR$/craw_sgg.py" />
         <option value="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/search_sgg.html" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/election_to_excel.py" />
-        <option value="$PROJECT_DIR$/elect_20415/kakao/urls.py" />
-        <option value="$PROJECT_DIR$/elect_20415/kakao/views.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/election_url.py" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/urls.py" />
+        <option value="$PROJECT_DIR$/brae_election_url.py" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/views.py" />
         <option value="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html" />
+        <option value="$PROJECT_DIR$/elect_20415/config/settings.py" />
+        <option value="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/brae_filter.html" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/admin.py" />
+        <option value="$PROJECT_DIR$/elect_20415/crawl_elect/models.py" />
+        <option value="$PROJECT_DIR$/elect_20415/kakao/urls.py" />
+        <option value="$PROJECT_DIR$/elect_20415/kakao/templates/kakao/show_jd.html" />
+        <option value="$PROJECT_DIR$/change_won.py" />
+        <option value="$PROJECT_DIR$/change_won2.py" />
+        <option value="$PROJECT_DIR$/elect_20415/kakao/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="745" />
-    <option name="y" value="-1417" />
-    <option name="width" value="1280" />
-    <option name="height" value="1417" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -303,27 +355,6 @@
               <item name="congress_election" type="b2602c69:ProjectViewProjectNode" />
               <item name="congress_election" type="462c0819:PsiDirectoryNode" />
               <item name="elect_20415" type="462c0819:PsiDirectoryNode" />
-              <item name="crawl_elect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="congress_election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="congress_election" type="462c0819:PsiDirectoryNode" />
-              <item name="elect_20415" type="462c0819:PsiDirectoryNode" />
-              <item name="kakao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="congress_election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="congress_election" type="462c0819:PsiDirectoryNode" />
-              <item name="elect_20415" type="462c0819:PsiDirectoryNode" />
-              <item name="kakao" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="congress_election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="congress_election" type="462c0819:PsiDirectoryNode" />
-              <item name="elect_20415" type="462c0819:PsiDirectoryNode" />
-              <item name="kakao" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="kakao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -337,17 +368,17 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/elect_20415/kakao/templates/kakao" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/elect_20415/kakao/templates/kakao" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/elect_20415" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/elect_20415/kakao/templates/kakao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -362,7 +393,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.change_won2">
+    <configuration name="change_won" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="congress_election" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/change_won.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="change_won2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="congress_election" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/change_won2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="craw_sgg_to_excel" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="congress_election" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -376,48 +449,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/craw_sgg_to_excel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="delete_duplicates_db" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="congress_election" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/delete_duplicates_db.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="election_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="congress_election" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/election_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -470,11 +501,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.change_won2" />
+        <item itemvalue="Python.change_won" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.craw_sgg_to_excel" />
         <item itemvalue="Python.views (1)" />
-        <item itemvalue="Python.delete_duplicates_db" />
-        <item itemvalue="Python.election_test" />
       </list>
     </recent_temporary>
   </component>
@@ -492,21 +523,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-535" y="-1417" width="2560" height="1417" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1866614" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18321013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32924962" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32924962" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924962" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31712472" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32924962" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2388974" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23572938" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32924962" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -533,21 +564,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/elect_20415/kakao/views.py</url>
-          <line>216</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/image/0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/image/1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -598,12 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/elect_20415/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -628,75 +639,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/config/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elect_20415/kakao/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/tests.py">
+    <entry file="file://$PROJECT_DIR$/delete_duplicates_db.py" />
+    <entry file="file://$PROJECT_DIR$/elect_20415/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/delete_duplicates_db.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/db.sqlite3">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="961">
+          <caret line="4074" column="16" selection-start-line="4074" selection-start-column="16" selection-end-line="4074" selection-end-column="16" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/name.html" />
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/index.html" />
     <entry file="file://$PROJECT_DIR$/elect_20415/config/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/urls.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/search_sgg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="224">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/migrations/0011_auto_20200405_1648.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craw_sgg_to_excel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-245">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/admin.py">
+    <entry file="file://$PROJECT_DIR$/election_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="-1982">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/election_test_win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-3262">
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/election_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3234">
+          <caret line="109" column="14" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/migrations/0012_candidate_gong_url.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/config/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/brae_filter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5024">
+          <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/craw_sgg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2743">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+        <state relative-caret-position="-30">
+          <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/craw_sgg_to_excel.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1313">
-          <caret line="110" column="57" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
+        <state relative-caret-position="320">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brae_election_url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1114">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="28" selection-end-column="11" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
@@ -710,105 +772,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/db.sqlite3">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="4074" column="16" selection-start-line="4074" selection-start-column="16" selection-end-line="4074" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="14" />
+        <state relative-caret-position="614">
+          <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/election_to_excel.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="3969">
+          <caret line="191" selection-start-line="191" selection-end-line="200" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/show_jd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change_won.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2944">
+          <caret line="92" column="62" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change_won2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1194">
+          <caret line="78" column="28" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="28" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/election_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4256">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/search_sgg.html">
+    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/name.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7566" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="28" />
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/crawl_elect/views.py">
+    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+        <state relative-caret-position="626">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="898">
-          <caret line="254" column="41" selection-start-line="254" selection-start-column="41" selection-end-line="254" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/elect_20415/kakao/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        <state relative-caret-position="480">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#10566#11264#0" />
-            <element signature="e#11900#12552#0" />
+            <element signature="e#1#36#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elect_20415/kakao/templates/kakao/filter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="55" column="2" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
         </state>
       </provider>
     </entry>

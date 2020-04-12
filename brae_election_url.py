@@ -19,77 +19,56 @@ def crawl():
     time.sleep(4)
 
     #국회의원 선거 클릭
-    browser.find_element_by_css_selector("#electionId2").click()
+    browser.find_element_by_css_selector("#electionId7").click()
     time.sleep(2)
 
-    #도시 선택 cityCode
+    gd_list = ['더불어민주당', '미래통합당', '민생당', '미래한국당', '더불어시민당', '정의당', '우리공화당', '민중당', '한국경제당', '국민의당', '친박신당', '열린민주당',
+     '코리아', '가자!평화인권당', '가자환경당', '공화당', '국가혁명배당금당', '국민새정당', '국민참여신당', '기독당', '기독자유통일당', '기본소득당', '깨어있는시민연대당', '남북통일당',
+     '노동당', '녹색당', '대한당', '대한민국당', '미래당', '미래민주당', '미래자영업당', '민중민주당', '사이버모바일국민정책당', '새누리당', '시대전환', '여성의당', '우리당',
+     '자유당', '새벽당', '정치개혁연합', '자영업당', '직능자영업당', '충청의미래당', '친박연대', '통일민주당', '통합민주당', '한국국민당', '한국복지당', '한나라당', '한반도미래연합',
+     '홍익당']
 
-    city_list = browser.find_elements_by_css_selector("select#cityCode > option")
-    city_list = list(map(lambda x: x.text, city_list))
-    city_list = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
-    all_candidate_list = []
+    #정당 선택 cityCode
+    gd_list = browser.find_elements_by_css_selector("select#proportionalRepresentationCode > option")
+    # set_city = Select(browser.find_element_by_css_selector('proportionalRepresentationCode'))
+    # set_city.select_by_index(0)
+    time.sleep(1)
+
+    # 조회 버튼 선택 (홈페이지에서 img 타입의 버튼이 하나라서 이렇게 씀)
+    browser.find_element_by_css_selector("#spanSubmit").click()
+    time.sleep(1)
+    # gd_list = list(map(lambda x: x.text, gd_list))
+    # print(gd_list)
     all_candidate_image_list = []
+    all_candidate_list = []
     all_candidate_deatil_urllist = []
     all_candidate_gong_urllist = []
 
-    for city in city_list:
-        print("도시: "+city)
-        select_city = Select(browser.find_element_by_id('cityCode'))
-        #서울 특별시 선택
-        select_city.select_by_visible_text(city)
-        time.sleep(1)
-
-        # 선거구 선택 sggCityCode
-        sgg_list = browser.find_elements_by_css_selector("select#sggCityCode > option")
-        sgg_list = list(map(lambda x: x.text, sgg_list))[1:]
-        time.sleep(1)
-
-        for sgg in sgg_list:
-            print("선거구: " + sgg)
-            select_sgg = Select(browser.find_element_by_id("sggCityCode"))
-            # 선거구 종로구 선거 선택
-            select_sgg.select_by_visible_text(sgg)
-            time.sleep(1)
-
-            # 조회 버튼 선택 (홈페이지에서 img 타입의 버튼이 하나라서 이렇게 씀)
-            browser.find_element_by_css_selector("#spanSubmit").click()
-
-            # 국회의원 정보 크롤
-            candidate_list = browser.find_elements_by_css_selector("table#table01 td")
-            candidate_list = list(map(lambda x: x.text, candidate_list))
-            all_candidate_list += candidate_list
+    candidate_list = browser.find_elements_by_css_selector("table#table01 td")
+    candidate_list = list(map(lambda x: x.text, candidate_list))
+    print(candidate_list)
+    all_candidate_list += candidate_list
 
 
-            # 국회의원 얼굴 이미지 URL 크롤링
-            candidate_image_list = browser.find_elements_by_css_selector("table#table01 tr input[type=image]")
-            candidate_image_list = list(map(lambda  x: x.get_attribute('src'), candidate_image_list))
-            # print(candidate_image_list)
-            # print(candidate_list, candidate_image_list)
-            all_candidate_image_list += candidate_image_list
+    # 국회의원 얼굴 이미지 URL 크롤링
+    candidate_image_list = browser.find_elements_by_css_selector("table#table01 tr input[type=image]")
+    candidate_image_list = list(map(lambda  x: x.get_attribute('src'), candidate_image_list))
+    print(candidate_image_list)
+    # print(candidate_list, candidate_image_list)
+    all_candidate_image_list += candidate_image_list
 
-            #image_url 에서 url 검색
+    #image_url 에서 url 검색
 
-            for image_url in candidate_image_list:
-                index = image_url.find("Hb")
-                huboid = image_url[index + 2: index + 11]
+    for image_url in candidate_image_list:
+        index = image_url.find("Hb")
+        huboid = image_url[index + 2: index + 11]
 
-                detail_url = f"http://info.nec.go.kr/electioninfo/candidate_detail_info.xhtml?electionId=0020200415&huboId={huboid}"
-                gong_url = f"http://policy.nec.go.kr/plc/popup/initUMAPopup.do?sgId=20200415&subSgId=220200415&huboid={huboid}#none"
-                all_candidate_deatil_urllist.append(detail_url)
-                all_candidate_gong_urllist.append(gong_url)
-
-
-        browser.get("http://info.nec.go.kr/main/showDocument.xhtml?electionId=0020200415&topMenuId=CP&secondMenuId=CPRI03")
-        time.sleep(4)
-
-        # 국회의원 선거 클릭
-        browser.find_element_by_css_selector("#electionId2").click()
-        time.sleep(2)
-
-        print(all_candidate_list)
-        print(all_candidate_image_list)
-        print(all_candidate_deatil_urllist)
-        print(all_candidate_gong_urllist)
+        detail_url = f"http://info.nec.go.kr/electioninfo/candidate_detail_info.xhtml?electionId=0020200415&huboId={huboid}"
+        gong_url = f"http://policy.nec.go.kr/plc/popup/initUMAPopup.do?sgId=20200415&subSgId=220200415&huboid={huboid}#none"
+        print(detail_url)
+        print(gong_url)
+        all_candidate_deatil_urllist.append(detail_url)
+        all_candidate_gong_urllist.append(gong_url)
 
     return all_candidate_list, all_candidate_image_list, all_candidate_deatil_urllist, all_candidate_gong_urllist
 
