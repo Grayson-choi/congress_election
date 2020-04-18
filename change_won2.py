@@ -1,19 +1,17 @@
-def numberToKorean(input):
-        input = str(input)
-        if str(input)[0] == "-":
-            print("-입니다.")
-            input = input[1:]
-            print(input)
-        else:
-            print("+입니다.")
-            print(input)
+def won_to_korean(num):
+    num = num.replace(',',"")
+    print(num[:-5] + "억" + num[-5:-1] + "만원")
+    return num[:-5] + "억" + num[-5:-1] + "만원"
 
 
 
-numberToKorean("-1234")
-numberToKorean("123")
+num1 = "-57,7019"
+num2 = "1977,128"
 
+won_to_korean(num1)
+won_to_korean(num2)
 # a = "-123"
+
 # b = -123
 # print(a[0])
 # print(b[0])

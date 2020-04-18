@@ -1,18 +1,11 @@
-
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.http import HttpResponse
-import json
-from selenium import webdriver
-import time
-
 from django.views.decorators.csrf import csrf_exempt
-from pprint import pprint
-from django.db import models
-
+import json
 from crawl_elect.models import Candidate, Precinct, Brae, Jd
 
-ngrok_url = "http://ec2-3-133-86-208.us-east-2.compute.amazonaws.com:8080"
+
+ngrok_url = "https://6a213729.ngrok.io"
 
 quick_replies = [
                 {'label': '국회의원 조회',
@@ -43,7 +36,6 @@ brae_quick_replies = [
     {'label': '비례대표 정당',
      'action': 'message',
      'messageText': '비례대표_정당으로_조회'}
-
 ]
 
 jd_quick_replies = [
@@ -56,64 +48,83 @@ jd_quick_replies = [
      'messageText': '비례 대표 전체 조회'}
 ]
 
+def simple_candidate(candidates):
+    for candidate in candidates:
+        if "아니한" in candidate.military:
+            candidate.military = "X"
+        elif "마친사람" in candidate.military:
+            candidate.military = "O"
+        else:
+            candidate.military = "-"
+        candidate.wealth = won_to_korean(candidate.wealth)
 
-#
-# @csrf_exempt
-# def index(request):
-#     answer = request.body.decode('utf-8')
-#     return_json_str = json.loads(answer)
-#     print(return_json_str)
-#     output = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "basicCard": {
-#                         "title": f"국회의원 후보자를 검색하시려면",
-#                         "description": "아래 버튼을 눌러주세요.",
-#                     }
-#                 }
-#
-#             ],
-#             'quickReplies': quick_replies
-#
-#         }
-#     }
-#
-#     return JsonResponse(output)
+    return candidates
 
-@csrf_exempt
-def show_jd(request):
-    answer = request.body.decode('utf-8')
-    return_json_str = json.loads(answer)
-    print(return_json_str)
+def make_output(params, button_title, url, q_button):
     output = {
         "version": "2.0",
         "template": {
             "outputs": [
                 {
                     "basicCard": {
-                        "title": f"정당를 정보 확인하시려면",
+                        "title": params,
                         "description": "아래 버튼을 눌러주세요.",
-                        # "thumbnail": {
-                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                        # },
-
                         "buttons": [
                             {
                                 "action": "webLink",
-                                "label": "정당 확인",
-                                "webLinkUrl": f"{ngrok_url}/kakao/jd/searchall"
+                                "label": button_title,
+                                "webLinkUrl": url
                             }
                         ],
                     }
                 }
-
             ],
-            'quickReplies': jd_quick_replies
-
+            'quickReplies': q_button
         }
     }
+    return output
+
+def make_no_output(title,q_button):
+    output = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "basicCard": {
+                        "title": title,
+                        "description": "찾으시는 후보자 정보가 없습니다.",
+                    }
+                }
+            ],
+            'quickReplies': q_button
+        }
+    }
+    return output
+
+def won_to_korean(num):
+    num = num.replace(',',"")
+    if num[0] == "-":
+        if len(num) <= 6:
+            return "-" + num[-5:-1] + "만원"
+        else:
+            return "-" + num[:-5] + "억" + num[-5:-1] + "만원"
+    else:
+        if len(num) <= 5:
+            return num[-5:-1] + "만원"
+        else:
+            return num[:-5] + "억" + num[-5:-1] + "만원"
+
+
+@csrf_exempt
+def show_jd(request):
+    answer = request.body.decode('utf-8')
+    return_json_str = json.loads(answer)
+    print(return_json_str)
+    title = f"정당를 정보 확인하시려면"
+    label = "정당 확인"
+    url = f"{ngrok_url}/kakao/jd/searchall"
+    q_button = jd_quick_replies
+    output = make_output(title, label, url, q_button)
 
     return JsonResponse(output)
 
@@ -128,82 +139,22 @@ def jd_searchall(request):
     return render(request, 'kakao/show_jd.html', context)
 
 
-
-
-#
-# @csrf_exempt
-# def brae_index(request):
-#     answer = (request.body).decode('utf-8')
-#     return_json_str = json.loads(answer)
-#     print(return_json_str)
-#     output = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "basicCard": {
-#                         "title": f"비례대표 후보자를 검색하시려면",
-#                         "description": "아래 버튼을 눌러주세요.",
-#                     }
-#                 }
-#
-#             ],
-#             'quickReplies': brae_quick_replies
-#
-#         }
-#     }
-#
-#     return JsonResponse(output)
-
-
-
-
 @csrf_exempt
 def brae_all(request):
     answer = (request.body).decode('utf-8')
     return_json_str = json.loads(answer)
-    print(return_json_str)
-    output = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "basicCard": {
-                        "title": f"비례대표 전체 후보자 정보",
-                        "description": "아래 버튼을 눌러주세요.",
-                        # "thumbnail": {
-                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                        # },
+    title = f"비례대표 전체 후보자 정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/brae_searchall"
+    q_button = brae_quick_replies
+    output = make_output(title, label, url, q_button)
 
-                        "buttons": [
-                            {
-                                "action": "webLink",
-                                "label": "후보자 확인",
-                                "webLinkUrl": f"{ngrok_url}/kakao/brae_searchall"
-                            }
-                        ],
-                    }
-                }
-
-            ],
-            'quickReplies': brae_quick_replies
-
-        }
-    }
 
     return JsonResponse(output)
 
 def brae_searchall(request):
     candidates = Brae.objects.all()
-
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
-
+    candidates = simple_candidate(candidates)
     context = {
         'candidates': candidates
     }
@@ -219,63 +170,23 @@ def brae_jungdang(request):
     jungdang = res.get('action').get('params').get('brae_jungdang')
     # print(jungdang)
     candidates = Brae.objects.filter(belong__contains=jungdang)
+    title = f"비례대표 {jungdang}별 후보자정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/brae_searchjungdang/{jungdang}/"
+    q_button = brae_quick_replies
+    output = make_output(title, label, url, q_button)
+
     if candidates:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"비례대표 {jungdang}별 후보자정보",
-                            "description": "아래 버튼을 눌러주세요.",
-
-                            "buttons": [
-                                {
-                                    "action": "webLink",
-                                    "label": "후보자 확인",
-                                    "webLinkUrl": f"{ngrok_url}/kakao/brae_searchjungdang/{jungdang}/"
-                                }
-                            ],
-                        }
-                    }
-
-                ],
-                'quickReplies': brae_quick_replies
-
-            }
-        }
+        output = make_output(title, label, url, q_button)
     else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"비례대표{jungdang} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
-
-                        }
-                    }
-                ],
-                'quickReplies': brae_quick_replies
-            }
-        }
+        output = make_no_output(title,q_button)
     return JsonResponse(output)
 
 def brae_search_jungdang(request, jungdang):
 
     candidates = Brae.objects.filter(belong__contains=jungdang)
 
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
+    candidates = simple_candidate(candidates)
 
     context = {
         'candidates': candidates
@@ -289,72 +200,25 @@ def brae_search_jungdang(request, jungdang):
 def brae_name(request):
     answer = ((request.body).decode('utf-8'))
     res = json.loads(answer)
-    print(res)
-    # print(res)
     name = res.get('action').get('params').get('brae_HuboName')
-    print(name)
     candidates = Brae.objects.filter(name__contains=name)
+    title = f"비례대표 {name} 후보자 정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/brae_searchname/{name}"
+    q_button = brae_quick_replies
+
 
     if candidates:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"비례대표 {name} 후보자 정보",
-                            "description": "아래 버튼을 눌러주세요.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
-
-                            "buttons": [
-                                {
-                                    "action": "webLink",
-                                    "label": "후보자 확인",
-                                    "webLinkUrl": f"{ngrok_url}/kakao/brae_searchname/{name}"
-                                }
-                            ],
-                        }
-                    }
-                ],
-                'quickReplies': brae_quick_replies
-            }
-        }
+        output = make_output(title, label, url, q_button)
     else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{name} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
-
-                        }
-                    }
-                ],
-                'quickReplies': brae_quick_replies
-            }
-        }
+        output = make_no_output(title, q_button)
 
     return JsonResponse(output)
 
 
 def brae_search_name(request, name):
     candidates = Brae.objects.filter(name__contains=name)
-
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
-
+    simple_candidate(candidates)
     context = {
         'candidates': candidates
     }
@@ -375,33 +239,12 @@ def all(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    print(return_json_str)
-    output = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "basicCard": {
-                        "title": f"전체 후보자 정보",
-                        "description": "아래 버튼을 눌러주세요.",
-                        # "thumbnail": {
-                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                        # },
 
-                        "buttons": [
-                            {
-                                "action": "webLink",
-                                "label": "후보자 확인",
-                                "webLinkUrl": f"{ngrok_url}/kakao/searchall"
-                            }
-                        ],
-                    }
-                }
-
-            ],
-            'quickReplies': quick_replies
-        }
-    }
+    title = f"전체 후보자 정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/searchall/"
+    q_button = quick_replies
+    output = make_output(title, label, url, q_button)
 
     return JsonResponse(output)
 
@@ -410,14 +253,7 @@ def all(request):
 def searchall(request):
     #전체 후보자 조회
     candidates = Candidate.objects.all()
-
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
+    candidates = simple_candidate(candidates)
 
     context = {
         'candidates': candidates
@@ -435,50 +271,18 @@ def sgg(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
 
-    return_str = return_json_str['action']['params']['sgg']
+    sgg = return_json_str['action']['params']['sgg']
     print(return_json_str)
+    candidates = Candidate.objects.filter(ep__contains=sgg)
+    title = f"{sgg} 후보자 정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/filter/{sgg}"
+    q_button = quick_replies
 
-    output = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "basicCard": {
-                        "title": f"{return_str} 후보자 정보",
-                        "description": "아래 버튼을 눌러주세요.",
-                        # "thumbnail": {
-                        #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                        # },
-
-                        "buttons": [
-                            {
-                                "action": "webLink",
-                                "label": "후보자 확인",
-                                "webLinkUrl": f"{ngrok_url}/kakao/filter/{return_str}"
-                            }
-                        ],
-                    }
-                }
-
-            ],
-            'quickReplies': [
-                {'label': '전체 조회',
-                 'action': 'message',
-                 'messageText': '전체 후보자 조회'},
-                {'label': '선거구별 조회',
-                 'action': 'message',
-                 'messageText': '선거구별 조회'},
-                {'label': '이름으로 조회',
-                 'action': 'message',
-                 'messageText': '이름으로 조회'},
-                {'label': '주소로찾기',
-                 'action': 'block',
-                 'blockId': '5e889e80b1fdff0001d6758c'}
-            ]
-
-        }
-    }
-
+    if candidates:
+        output = make_output(title, label, url, q_button)
+    else:
+        output = make_no_output(title, q_button)
 
     return JsonResponse(output)
 
@@ -487,14 +291,7 @@ def filter_candidates(request, sgg):
     #선거구 별 후보 조회
     candidates = Candidate.objects.filter(ep=sgg).order_by('num')
 
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
-
+    candidates = simple_candidate(candidates)
     context = {
         'candidates': candidates
     }
@@ -506,71 +303,26 @@ def filter_candidates(request, sgg):
 def name(request):
     answer = ((request.body).decode('utf-8'))
     res = json.loads(answer)
-
-
-    # pprint(res)
     name = res.get('action').get('params').get('HuboName')
 
     candidates = Candidate.objects.filter(name__contains=name)
+    title = f"{name} 후보자 정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/searchname/{name}"
+    q_button = quick_replies
+
     if candidates:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{name} 후보자 정보",
-                            "description": "아래 버튼을 눌러주세요.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
-
-                            "buttons": [
-                                {
-                                    "action": "webLink",
-                                    "label": "후보자 확인",
-                                    "webLinkUrl": f"{ngrok_url}/kakao/searchname/{name}"
-                                }
-                            ],
-                        }
-                    }
-                ],
-                'quickReplies': quick_replies
-            }
-        }
+        output = make_output(title, label, url, q_button)
     else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{name} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
-
-                        }
-                    }
-                ],
-                'quickReplies': quick_replies
-            }
-        }
+        output = make_no_output(title, q_button)
 
     return JsonResponse(output)
 
 
+
 def search_name(request, name):
     candidates = Candidate.objects.filter(name__contains=name)
-
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
+    candidates = simple_candidate(candidates)
 
     context = {
         'candidates': candidates
@@ -583,81 +335,34 @@ def juso(request):
     answer = ((request.body).decode('utf-8'))
     res = json.loads(answer)
 
-    # pprint(res)
     sigun = res.get('action').get('params').get('sigun')
     dong = res.get('action').get('params').get('dong')
-    # print(sigun)
-    # print(dong)
 
     juso = f'{sigun}_{dong}'
     sigun, dong = juso.split('_')
     data = Precinct.objects.filter(sigun__contains=sigun[:2], dong__contains=dong[:2]).first()
+
+    title = f"{juso} 후보자 정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/searchjuso/{juso}"
+    q_button = quick_replies
+
     if data:
-        output = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "basicCard": {
-                    "title": f"{juso} 후보자 정보",
-                    "description": "아래 버튼을 눌러주세요.",
-                    # "thumbnail": {
-                    #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                    # },
-
-                    "buttons": [
-                        {
-                            "action": "webLink",
-                            "label": "후보자 확인",
-                            "webLinkUrl": f"{ngrok_url}/kakao/searchjuso/{juso}"
-                        }
-                    ],
-                }
-                }
-
-            ],
-            'quickReplies': quick_replies
-        }
-    }
+        output = make_output(title, label, url, q_button)
     else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{sigun}_{dong} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
+        output = make_no_output(title, q_button)
 
-                        }
-                    }
-                ],
-                'quickReplies': quick_replies
-            }
-        }
     return JsonResponse(output)
+
 
 def search_juso(request, juso):
     sigun, dong = juso.split('_')
 
-    print(sigun[:2], dong)
     data = Precinct.objects.filter(sigun__contains=sigun[:2], dong__contains=dong).first()
 
-    print(data)
-
-
-
     candidates = Candidate.objects.filter(ep=data.sgg)
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
+    candidates = simple_candidate(candidates)
+
     context = {
         'candidates': candidates
     }
@@ -672,63 +377,24 @@ def jungdang(request):
 
     jungdang = res.get('action').get('params').get('jungdang')
     candidates = Candidate.objects.filter(belong__contains=jungdang)
+
+
+    title = f"국회의원 {jungdang}별 후보자정보"
+    label = "후보자 확인"
+    url = f"{ngrok_url}/kakao/searchjungdang/{jungdang}"
+    q_button = quick_replies
+
     if candidates:
-        output = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "basicCard": {
-                    "title": f"국회의원 {jungdang}별 후보자정보",
-                    "description": "아래 버튼을 눌러주세요.",
-
-                    "buttons": [
-                        {
-                            "action": "webLink",
-                            "label": "후보자 확인",
-                            "webLinkUrl": f"{ngrok_url}/kakao/searchjungdang/{jungdang}"
-                        }
-                    ],
-                }
-                }
-
-            ],
-            'quickReplies': quick_replies
-
-        }
-    }
+        output = make_output(title, label, url, q_button)
     else:
-        output = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "basicCard": {
-                            "title": f"{jungdang} 후보자 정보",
-                            "description": "찾으시는 후보자 정보가 없습니다.",
-                            # "thumbnail": {
-                            #     "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-                            # },
-
-                        }
-                    }
-                ],
-                'quickReplies': quick_replies
-            }
-        }
+        output = make_no_output(title, q_button)
     return JsonResponse(output)
 
 def search_jungdang(request, jungdang):
 
     candidates = Candidate.objects.filter(belong__contains=jungdang)
 
-    for candidate in candidates:
-        if "아니한" in candidate.military:
-            candidate.military = "X"
-        elif "마친사람" in candidate.military:
-            candidate.military = "O"
-        else:
-            candidate.military = "-"
+    candidates = simple_candidate(candidates)
 
     context = {
         'candidates': candidates
